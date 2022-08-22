@@ -22,13 +22,14 @@ const postCar = async (req, res)=>{
     //     quantity: 4
     // }
         let Data = {
-            car_Model: "Civic",
+            car_Type : "standard",
+            car_Model: "Accord",
             car_Img:"/assets/background.png",
             car_Make: "Honda",
-            car_Year: 2022,
-            price: 1234568,
-            times_rented: 2,
-            quantity: 1
+            car_Year: 2002,
+            price: 1234,
+            times_rented: 1,
+            quantity: 3
     }
     try{
         const car = await Cars.create(Data)

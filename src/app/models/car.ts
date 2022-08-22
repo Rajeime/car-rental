@@ -1,5 +1,6 @@
 export class Cars {
     _id?: string;
+    car_Type:string;
     car_Model: string;
     car_Img : String;
     car_Make: string;
@@ -10,6 +11,7 @@ export class Cars {
   
     constructor(
       _id?: string,
+      car_Type?: string,
       car_Model?: string,
       car_Img ?: String,
       car_Make?: string,
@@ -19,6 +21,7 @@ export class Cars {
       quantity?: number,
     ) {
       this._id = _id!;
+      this.car_Type = car_Type!;
       this.car_Model = car_Model!;
       this.car_Img = car_Img!
       this.car_Make = car_Make!;

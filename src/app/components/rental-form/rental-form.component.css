@@ -37,6 +37,7 @@
     color: white;
     background-color: var(--accent);
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .input-field{

@@ -6,6 +6,12 @@ import { Cars } from 'src/app/models/car';
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styles: [
+    `
+    .cars{
+      display:flex;
+      justify-content: space-evenly
+    }
+    `
   ]
 })
 export class HomePageComponent implements OnInit {
@@ -16,7 +22,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.carService.getCars().subscribe((result)=>{
-      console.log(result)
+      this.cars = result
     })
   }
 

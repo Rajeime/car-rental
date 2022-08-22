@@ -1,6 +1,11 @@
 const db = require('mongoose');
 
 let carsSchema = new db.Schema({
+        car_Type: { 
+          type: String, 
+          required: true 
+        },
+
         car_Model: { 
           type: String, 
           required: true 

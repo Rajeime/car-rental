@@ -1,0 +1,23 @@
+.container{
+    border: 1px solid var(--accent);
+    width: 300px;
+    border-radius: 4px;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container img{
+    width: 100%;
+}
+
+.carType, .carName{
+    text-align: center;
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    border-top: 2px solid var(--accent);
+    text-transform: uppercase;
+}
