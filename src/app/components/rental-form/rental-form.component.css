@@ -1,0 +1,49 @@
+.container{
+    background-color: var(--accent);
+    position: absolute;
+    width: 90%;
+    height: 14%;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container input{
+    box-sizing: border-box;
+}
+
+.container input::placeholder{
+    color: black;
+}
+
+.container input, .container button{
+    padding: 10px;
+    width: 160px;
+    margin: 2px;
+}
+
+.container button{
+    border: 2px solid white;
+    color: white;
+    background-color: var(--accent);
+    text-transform: uppercase;
+}
+
+.input-field{
+    display: flex;
+    margin: 10px;
+}
+
+.input-field .time{
+    max-width: 54px;
+}

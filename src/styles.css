@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Great+Vibes&family=Gulzar&family=Roboto:wght@300&display=swap');
+
+:root{
+    --accent : rgba(30, 59, 231, 0.11);
+}
+
 body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color : rgb(31, 31, 31);
+    height: 200vh;
+    /* background-color : rgb(31, 31, 31); */
 }

@@ -21,11 +21,12 @@ import { Component, OnInit } from '@angular/core';
     <button class="rent">Rent a car</button>
 </nav>`,
   styles: [
-    `nav{
+    `
+    nav{
       display:flex;
       justify-content : space-around;
       align-items : center;
-      background-color : rgb(31, 31, 31);
+      background-color : black;
       font-family: sans-serif;
     }
 
@@ -47,6 +48,7 @@ import { Component, OnInit } from '@angular/core';
       font-size: 12px;
       color:white;
       font-family: sans-serif;
+      cursor:pointer;
     }
 
     .rent{
@@ -60,7 +62,8 @@ import { Component, OnInit } from '@angular/core';
     
     
     `
-  ]
+  ],
+
 })
 export class NavbarComponent implements OnInit {
 
