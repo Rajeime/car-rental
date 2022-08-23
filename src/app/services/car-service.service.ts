@@ -13,21 +13,24 @@ export class CarServiceService {
 
   private apiUrl = environment.apiUrl + '/cars/';
  
+  //<--------------- service for retrieving all cars --------------- >
   getCars():Observable<Cars[]>{
     return this.http.get<Cars[]>(this.apiUrl);
   }
 
-  // createItem(category:Category) {
+  //<--------------- service for posting car --------------- >
+  createItem(car:Cars) {
+    return this.http.post<Cars>(this.apiUrl, car);
+  }
 
-  //   return this.http.post<ApiResponse>(this.apiUrl, category);
-  // }
+  //<--------------- service for updating car --------------- >
+  updateItem(carID: string, car: Cars) {
+    return this.http.put<Cars>(this.apiUrl + carID, car);
+  }
 
-  // updateItem(categoryID: string, category: Category) {
-  //   return this.http.put<ApiResponse>(this.apiUrl + categoryID, category);
-  // }
-
-  // deleteItem(cateforyID: string) {
-  //   return this.http.delete<ApiResponse>(this.apiUrl + cateforyID);
-  // }
+  //<--------------- service for deleting car --------------- >
+  deleteCar(carID: string) {
+    return this.http.delete<Cars>(this.apiUrl + carID);
+  }
 }
 

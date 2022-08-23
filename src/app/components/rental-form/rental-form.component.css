@@ -26,11 +26,54 @@
     color: black;
 }
 
-.container input, .container button{
+.container input, .container select,.container button{
     padding: 10px;
-    width: 160px;
+    max-width: 160px;
     margin: 2px;
 }
+
+.container select{
+        /* Reset Select */
+        appearance: none;
+        outline: 0;
+        border: 0;
+        box-shadow: none;
+        /* Personalize */
+        flex: 1;
+        padding: 0 1em;
+        color: #fff;
+        background-color: var(--darkgray);
+        background-image: none;
+        cursor: pointer;
+      }
+      /* Remove IE arrow */
+      select::-ms-expand {
+        display: none;
+      }
+      /* Custom Select wrapper */
+      .select {
+        position: relative;
+        display: flex;
+        width: 20em;
+        height: 3em;
+        border-radius: .25em;
+        overflow: hidden;
+      }
+      /* Arrow */
+      .select::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        background-color: #34495e;
+        transition: .25s all ease;
+        pointer-events: none;
+      }
+      /* Transition */
+      .select:hover::after {
+        color: #f39c12;
+      }
 
 .container button{
     border: 2px solid white;

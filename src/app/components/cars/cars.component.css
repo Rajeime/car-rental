@@ -1,13 +1,20 @@
 .container{
-    border: 1px solid var(--accent);
-    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 300px;
     border-radius: 4px;
     margin: 10px;
     font-family: 'Poppins', sans-serif;
+    transition: transform  .6s;
+}
+
+.container:hover{  
+  transform: scale(1.1); 
 }
 
 .container img{
     width: 100%;
+    border-radius:4px 4px 0px 0px;
+    height: 140px;
 }
 
 .carType, .carName{
@@ -20,4 +27,8 @@
     margin: 0 10px;
     border-top: 2px solid var(--accent);
     text-transform: uppercase;
+}
+
+.grey{
+    color: rgb(83, 83, 83);
 }

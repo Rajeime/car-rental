@@ -2,7 +2,14 @@
     <form action="" [formGroup]="rentalForm" (submit)="rentalFormButton()">
        <div class="input-field">
             <input type="text" placeholder="Pick up Location" name="pickUpLocation" formControlName="pickUpLocation">
+          <select name="" id="" formControlName="pickUpLocation">
+               <option value="" *ngFor="let name of locations.sort()">{{name}}</option>
+          </select>
        </div>
+
+       <!-- <div class="input-field">
+          <input type="text" placeholder="Pick up Location" name="pickUpLocation" formControlName="pickUpLocation">
+     </div> -->
 
        <div class="input-field">
             <input type="text" onfocus="(this.type = 'date')" placeholder="Pick up Date" name="pickUpDate" formControlName="pickUpDate">

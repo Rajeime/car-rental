@@ -23,6 +23,15 @@ export class RentalFormComponent implements OnInit {
     console.log(this.rentalForm.value)
   }
 
+  //locations available
+  locations:string[]=[
+    'Kingston',
+    'St Andrew',
+    'St Catherine',
+    'St Mary',
+    'Portland',
+  ]
+
   ngOnInit(): void {
   }
 

@@ -12,27 +12,9 @@ const getAllCars =  async (req, res)=> {
 }
 
 //post request to add cars to database
-const postCar = async (req, res)=>{
-    // let Data = {
-    //     car_Model: "Accord",
-    //     car_Make : "Honda",
-    //     car_Year : 2010,
-    //     price: 123456,
-    //     times_rented : 3,
-    //     quantity: 4
-    // }
-        let Data = {
-            car_Type : "standard",
-            car_Model: "Accord",
-            car_Img:"/assets/background.png",
-            car_Make: "Honda",
-            car_Year: 2002,
-            price: 1234,
-            times_rented: 1,
-            quantity: 3
-    }
+const postCar = async (req, res)=>{  
     try{
-        const car = await Cars.create(Data)
+        const car = await Cars.create(req.body)
         res.status(201).json(car)
         
     }catch(error){

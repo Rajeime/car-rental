@@ -10,6 +10,7 @@ import { RentalFormComponent } from './components/rental-form/rental-form.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarsComponent } from './components/cars/cars.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarsComponent } from './components/cars/cars.component';
     NavbarComponent,
     RentalFormComponent,
     CarsComponent,
+    AboutUsComponent,
 
   ],
   imports: [
