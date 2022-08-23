@@ -14,7 +14,7 @@ const getAllCars =  async (req, res)=> {
 //post request to add cars to database
 const postCar = async (req, res)=>{  
     try{
-        const car = await Cars.create(req.body)
+        let car = await Cars.create(req.body)
         res.status(201).json(car)
         
     }catch(error){
@@ -22,23 +22,6 @@ const postCar = async (req, res)=>{
         console.log(error)
     }
 }
-
-
-// const postCar2 = async (req, res) => {
- 
-//     const carModel = new Cars({
-//         car_Model: req.body.car_Model,
-//         car_Make : req.body.car_Make,
-//         car_Year : req.body.car_Year,
-//         price: req.body.price,
-//         times_rented : req.body.times_rented,
-//         quantity: req.body.quantity
-//     });
- 
-//     const savedCar = await carModel.save();
- 
-//     res.json(savedCar);
-//  };
 
 
 module.exports = {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import { Cars } from 'src/app/models/car';
+import { FormBuilder , Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
@@ -36,7 +37,19 @@ import { Cars } from 'src/app/models/car';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor( private carService : CarServiceService) { }
+
+
+  //form that accepts data from initial rental form
+    postCar = this.fb.group({
+      pickUpLocation : ['', Validators.required],
+      pickUpDate : ['', Validators.required],
+      pickUpTime : ['', Validators.required],
+      dropOffDate : ['' , Validators.required],
+      dropOffTime : ['' , Validators.required]
+    })
+
+    constructor( private carService : CarServiceService , private fb: FormBuilder) { }
+  
 
   cars:Cars[] = [];
 
@@ -53,9 +66,16 @@ export class HomePageComponent implements OnInit {
     this.spliceContent += 3
   }
 
-  // <--------------- see less button function  --------------->
+// <--------------- see less button function  --------------->
   seeLess():void{
     this.spliceContent -= 3
+  }
+
+  postCarButton():void{  
+    const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
+   this.carService.createItem({ car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity }).subscribe(()=>{
+      alert('car added')
+  })
   }
 
 }

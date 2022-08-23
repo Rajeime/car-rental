@@ -1,24 +1,24 @@
 export class Cars {
     _id?: string;
-    car_Type:string;
-    car_Model: string;
-    car_Img : String;
-    car_Make: string;
-    car_Year: Number;
-    price: Number;
-    times_rented: number;
-    quantity: number;
+    car_Type : string;
+    car_Model : string;
+    car_Img : string;
+    car_Make : string;
+    car_Year : number;
+    price : number;
+    times_rented : number;
+    quantity : number;
   
     constructor(
-      _id?: string,
-      car_Type?: string,
-      car_Model?: string,
-      car_Img ?: String,
-      car_Make?: string,
-      car_Year?: Number,
-      price?: Number,
-      times_rented?: number,
-      quantity?: number,
+      _id? : string,
+      car_Type? : string,
+      car_Model? : string,
+      car_Img ? : string,
+      car_Make? : string,
+      car_Year? : number,
+      price? : number,
+      times_rented? : number,
+      quantity? : number,
     ) {
       this._id = _id!;
       this.car_Type = car_Type!;
