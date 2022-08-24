@@ -1,4 +1,4 @@
-import { Component, OnInit, Input , OnDestroy } from '@angular/core';
+import { Component, OnInit, Input , OnDestroy  } from '@angular/core';
 import { Cars } from 'src/app/models/car';
 import { CarServiceService } from 'src/app/services/car-service.service';
 
@@ -151,7 +151,10 @@ export class SlideShowComponent implements OnInit , OnDestroy{
 
   ngOnInit(): void {
     this.carService.getCars().subscribe((result)=>{
-      this.cars = result
+      this.cars = result.sort((a,b)=>{
+        return b.times_rented - a.times_rented
+      }).slice(0,4)
+      console.log(this.cars)
     })
 
     if(this.autoSlide){

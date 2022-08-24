@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarsComponent } from './components/cars/cars.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ChooseCarComponent } from './components/choose-car/choose-car.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     RentalFormComponent,
     CarsComponent,
     AboutUsComponent,
+    ChooseCarComponent,
 
   ],
   imports: [

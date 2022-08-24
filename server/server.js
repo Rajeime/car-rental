@@ -9,10 +9,10 @@ const cors = require('cors');
 const routes = require('./routes/car');
 
 //<------- Middlewares -------->
-app.use(cors())
-app.use(routes);
+app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
 //<------- Start Express App ------->
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err) => {
@@ -24,6 +24,5 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err) => {
 		console.log(`Server listening on http://localhost:${PORT}`)
 	})
 })
-
 
 

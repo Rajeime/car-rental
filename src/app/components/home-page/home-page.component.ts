@@ -63,7 +63,10 @@ export class HomePageComponent implements OnInit {
 
 // <--------------- see more button function  --------------->
   seeMore():void{
-    this.spliceContent += 3
+    if(this.spliceContent < this.cars.length){
+      this.spliceContent += 3
+    }
+
   }
 
 // <--------------- see less button function  --------------->
@@ -72,10 +75,11 @@ export class HomePageComponent implements OnInit {
   }
 
   postCarButton():void{  
-    const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
-   this.carService.createItem({ car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity }).subscribe(()=>{
+    // const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
+    this.carService.createItem(this.postCar.value).subscribe(()=>{
       alert('car added')
   })
+
   }
 
 }
