@@ -39,7 +39,7 @@ export class HomePageComponent implements OnInit {
 
 
 
-  //form that accepts data from initial rental form
+  //<---------------- form that accepts data from initial rental form ---------------->
     postCar = this.fb.group({
       pickUpLocation : ['', Validators.required],
       pickUpDate : ['', Validators.required],

@@ -2,8 +2,8 @@
 <div class="infoPassed">
     <div class="leftInfo">
         <section>
-            <p class="pickUp">Dummy text for Pick Up</p>
-            <p class="timeInfo">Time of pick up</p>
+            <p class="pickUp">{{pickUpTime.pickUpLocation}}</p>
+            <p class="timeInfo">{{pickUpTime.pickUpDate}} , {{pickUpTime.pickUpTime}} </p>
         </section>
 
         <section style="margin: 20px;">
@@ -11,10 +11,42 @@
         </section>
 
         <section>
-            <p class="pickUp">Dummy text for Drop off</p>
-            <p class="timeInfo">Time of drop off</p>
+            <p class="pickUp">{{pickUpTime.dropOffLocation}}</p>
+            <p class="timeInfo">{{pickUpTime.dropOffDate}} , {{pickUpTime.dropOffTime}} </p>
         </section>
     </div>
 
     <div><button class="editButton"routerLink="/home">Edit</button></div>
+    
+</div>
+
+<!-- <div class="carTypes">
+    <div style="display: flex; justify-content: space-around">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+    </div>
+</div> -->
+
+<div class="carTypes">
+    <div class="tabs">
+
+        <div class="inner-div">
+            A
+        </div>
+
+        <div class="inner-div">
+            B
+        </div>
+        
+        <div class="inner-div">
+            C
+        </div>
+        
+        <div class="inner-div">
+            D
+        </div>
+
+    </div>
 </div>

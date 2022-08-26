@@ -73,12 +73,14 @@ import { CarServiceService } from 'src/app/services/car-service.service';
     }
 
     .headLine .carMake{
-      font-weight: 500;
+      /* font-weight: 500; */
       font-size: 74px;
+      font-weight : 300
     }
 
     .headLine .carModel{
       font-size: 40px;
+      font-weight : 300
     }
 
     .headLine .bookNow{

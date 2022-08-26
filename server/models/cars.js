@@ -2,42 +2,43 @@ const db = require('mongoose');
 
 let carsSchema = new db.Schema({
         car_Type: { 
-          type: String, 
-          required: true 
+          type : String, 
+          required : true 
         },
 
         car_Model: { 
-          type: String, 
-          required: true 
+          type : String, 
+          required : true 
         },
 
         car_Img : {
-          type: String
+          data : Buffer,
+          contentType : String
         },
 
         car_Make: { 
-          type: String, 
-          required: true 
+          type : String, 
+          required : true 
         },
 
         car_Year: {
-           type: Number, 
-           required: true 
+           type : Number, 
+           required : true 
         },
 
         price: { 
           type: Number, 
-          required: true 
+          required : true 
         },
 
         times_rented: { 
-          type: Number, 
+          type : Number, 
           required : true 
         },
 
         quantity: { 
-          type: Number, 
-          required: true 
+          type : Number, 
+          required : true 
         },
     },
     { collection: "Cars" }

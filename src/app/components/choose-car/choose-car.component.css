@@ -1,0 +1,51 @@
+.infoPassed{
+    /* border: 2px solid #ffb700;  */
+    border: 2px solid #ffb7008c; 
+    border-radius:4px; 
+    margin:40px 6%;
+    display: flex; 
+    justify-content:space-between; 
+    padding: 14px; 
+    align-items: center;}
+
+  .leftInfo{
+    display: flex; 
+    justify-content:space-around; 
+    line-height: 3px; 
+    align-items: center;
+    }
+
+  .pickUp{
+    font-size: 16px;
+    font-weight: 700;
+    font-family: sans-serif
+  }
+
+  .timeInfo{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: sans-serif;
+  }
+
+  .editButton{
+    background-color :rgb(2, 2, 120); 
+    padding: calc(4px*2) calc(4px*4);
+    color: white; 
+    border: none; 
+    border-radius: 2px;
+  }
+
+.tabs{
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabs .inner-div{
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  padding: 20px 40px;
+  cursor: pointer;
+  width: 100px;
+  border: 1px solid black;
+}
+
+

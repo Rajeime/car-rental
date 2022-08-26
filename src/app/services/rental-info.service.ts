@@ -7,9 +7,12 @@ export class RentalInfoService {
 
   constructor() { }
 
-  resntalInfo:[] = []
-
-  getInfo(){
-    return this.resntalInfo 
+  public saveData(value:string){
+    localStorage.setItem('key', value) 
   }
+
+  public getData(key:string){
+    return localStorage.getItem('key')
+  }
+
 }

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CarsComponent } from './components/cars/cars.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ChooseCarComponent } from './components/choose-car/choose-car.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ChooseCarComponent } from './components/choose-car/choose-car.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

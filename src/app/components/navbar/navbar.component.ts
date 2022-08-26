@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +14,13 @@ import { Component, OnInit } from '@angular/core';
     <ul class="links">
       <li routerLink="home">Home</li>
       <li routerLink="about">About Us </li>
-      <li>Contact</li>
-      <li>Login</li>
-      <li>Services</li>
-      <li>Sign Up</li>
+      <li routerLink="contact">Contact</li>
+      <li routerLink="login">Login</li>
+      <li routerLink="service">Services</li>
+      <li routerLink="signUp">Sign Up</li>
     </ul>
     
     <button class="rent">Rent a car</button>
-
   </nav>`,
 
 
@@ -69,9 +70,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router , private location : Location) { }
+  
 
-  ngOnInit(): void {
+  ngOnInit():void {
+    // console.log(this.location.path());
+    // if(this.location.path() == '/choose'){
+    //   alert('love'); 
+    // }
   }
 
 }
