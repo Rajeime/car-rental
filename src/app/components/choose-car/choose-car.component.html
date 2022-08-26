@@ -31,22 +31,10 @@
 
 <div class="carTypes">
     <div class="tabs">
-
-        <div class="inner-div">
-            A
-        </div>
-
-        <div class="inner-div">
-            B
-        </div>
-        
-        <div class="inner-div">
-            C
-        </div>
-        
-        <div class="inner-div">
-            D
-        </div>
-
+  
+            <div class="tab" *ngFor="let type of carTypes;" (click)="onClick($event)">
+                <p>{{type}}</p>
+            </div>
     </div>
 </div>
+

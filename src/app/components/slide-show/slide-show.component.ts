@@ -8,7 +8,7 @@ import { CarServiceService } from 'src/app/services/car-service.service';
   template:`
     <div class="slide-container" *ngFor="let car of cars ; let i = index" >
       
-    <!-- div for each item and info -->
+    <!---------- div for each item and info ---------->
     <div [ngClass]="{'active':  selectedIndex === i}" class="itemsContainer fade">
     <img src="{{car.car_Img}}" alt="" style="width: 100%;">
         <div class="headLine" >
@@ -19,88 +19,88 @@ import { CarServiceService } from 'src/app/services/car-service.service';
     </div>
     
       </div>
-        <!-- manipulation buttons for slide show -->
+        <!----------  manipulation buttons for slide show  ---------->
         <span class="prev click" (click)="prevBut()"><i class="fa fa-angle-left"></i></span>
       <span class="next click" (click)="nextBut()"><i class="fa fa-angle-right"></i></span>
   ` ,
   styles: [
     `
     .itemsContainer{
-      display:none
+      display : none
     }
 
     .active{
-      display:block;
+      display : block;
     }
 
     .slide-container{
-      position:relative;
+      position : relative;
     }
 
     .click{
-      color:white;
-      position:absolute;
-      top:45%;
-      cursor:pointer;
-      background:var(--accent);
-      padding:10px;
-      font-weight:bold;
-      width:20px;
-      display:flex;
-      justify-content:center;
+      color : white;
+      position : absolute;
+      top : 45%;
+      cursor : pointer;
+      background : var(--accent);
+      padding : 10px;
+      font-weight : bold;
+      width : 20px;
+      display : flex;
+      justify-content : center;
     }
 
     .prev{
-      left:20px
+      left : 20px
     }
 
     .next{
-      right:20px
+      right : 20px
     }
 
     .headLine{
-      position:absolute;
-      left:10%;
-      top:20%;
-      color:white;
+      position : absolute;
+      left : 10%;
+      top : 20%;
+      color : white;
     }
 
     .headLine p{
       text-transform:uppercase;
-      font-family:'Roboto', sans-serif;
-      font-style:normal;
-      line-height:1px;
+      font-family :'Roboto', sans-serif;
+      font-style : normal;
+      line-height : 1px;
     }
 
     .headLine .carMake{
       /* font-weight: 500; */
-      font-size: 74px;
+      font-size : 74px;
       font-weight : 300
     }
 
     .headLine .carModel{
-      font-size: 40px;
-      font-weight : 300
+      font-size : 40px;
+      font-weight : 300;
     }
 
     .headLine .bookNow{
       background-Color: var(--accent);
-      padding: .4rem .6rem;
-      color: white;
+      padding : .4rem .6rem;
+      color : white;
       text-transform : uppercase;
       font-size : 12px;
-      border: 1px solid var(--accent);
-      cursor:pointer;
+      border : 1px solid var(--accent);
+      cursor : pointer;
     }
 
     .fade{
-      animation-name: fade;
+      animation-name : fade;
       animation-duration : 1.5s;
     }
 
     @keyframes fade{
       from {
-        opacity: 0.9;
+        opacity : 0.9;
       }
 
       to{
@@ -114,7 +114,7 @@ import { CarServiceService } from 'src/app/services/car-service.service';
 export class SlideShowComponent implements OnInit , OnDestroy{
 
 
-//variables used to manipulate slideshow
+//<--------- variables used to manipulate slideshow ---------> 
   @Input() slideInterval = 5000; //5 seconds
   @Input() autoSlide = false;
   @Input() selectedIndex = 0 ;
@@ -124,7 +124,7 @@ export class SlideShowComponent implements OnInit , OnDestroy{
    this.autoSlide = false
   }
 
-  //array for storing cars from database
+  //<--------- array for storing cars from database --------->
   cars:Cars[] = []
 
   //prev button for slideshow

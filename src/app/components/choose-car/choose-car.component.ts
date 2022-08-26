@@ -27,4 +27,17 @@ export class ChooseCarComponent implements OnInit {
   slideInFunction(){
     document.querySelector('.lef')
   }
+
+  carTypes:string[]=[
+    'Standard',
+    'Luxury',
+    'Off Road',
+    'SUV',
+  ]
+
+  onClick(event:any){
+    event.target.style. backgroundColor = 'rgba(2, 2, 120, 0.064)'
+    event.target.style.color = 'rgb(2, 2, 120)';
+    event.target.style.border = '1px solid rgb(2, 2, 120)';
+  }
 }

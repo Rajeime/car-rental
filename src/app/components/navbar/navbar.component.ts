@@ -25,7 +25,7 @@ import { Location } from '@angular/common';
 
 
   styles: [
-    `
+    ` 
     nav{
       display : flex;
       justify-content : space-around;
@@ -59,12 +59,11 @@ import { Location } from '@angular/common';
       background-Color : transparent;
       border : 1px solid white;
       padding : .4rem .6rem;
-      color: white;
+      color : white;
       text-transform : uppercase;
       font-size : 12px;
       cursor : pointer;
-    }
-    `
+    }`
   ],
 
 })
