@@ -30,12 +30,12 @@ import { Location } from '@angular/common';
       display : flex;
       justify-content : space-around;
       align-items : center;
-      background-color : white;
+      background-color : black;
       font-family : sans-serif;
     }
 
     .logo h4{
-      color : black;
+      color : white;
       font-weight : 400;
       font-size : 18px;
       text-transform : uppercase;
@@ -50,16 +50,16 @@ import { Location } from '@angular/common';
       padding : 0px 10px;
       text-transform : uppercase;
       font-size : 12px;
-      color : black;
+      color : white;
       font-family : sans-serif;
       cursor:pointer;
     }
 
     .rent{
       background-Color : transparent;
-      border : 1px solid black;
+      border : 1px solid white;
       padding : .4rem .6rem;
-      color : black;
+      color : white;
       text-transform : uppercase;
       font-size : 12px;
       cursor : pointer;

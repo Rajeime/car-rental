@@ -6,41 +6,48 @@ import { CarServiceService } from 'src/app/services/car-service.service';
 @Component({
   selector: 'app-slide-show',
   template:`
-    <div class="slide-container" *ngFor="let car of cars ; let i = index" >
+  <div class="outer-container">
+  <div class="slide-container" *ngFor="let car of cars ; let i = index" >
       
-    <!---------- div for each item and info ---------->
-    <div [ngClass]="{'active':  selectedIndex === i}" class="itemsContainer fade">
-    <img src="{{car.car_Img}}" alt="" style="width: 100%;">
-        <div class="headLine" >
-          <p class="carMake">{{car.car_Make}}</p>
-          <p class="carModel">{{car.car_Model}}</p>
-          <button class="bookNow" (click)="bookNow(car)">Book Now</button>
-        </div>
-    </div>
-    
+      <!---------- div for each item and info ---------->
+      <div [ngClass]="{'active':  selectedIndex === i}" class="itemsContainer fade">
+      <img src="{{car.car_Img}}" alt="" style="width: 100%;">
+          <div class="headLine">
+            <p class="carMake">{{car.car_Make}}</p>
+            <p class="carModel">{{car.car_Model}}</p>
+            <button class="bookNow" (click)="bookNow(car)">Book Now</button>
+          </div>
       </div>
-        <!----------  manipulation buttons for slide show  ---------->
+     
+        </div>
+             <!----------  manipulation buttons for slide show  ---------->
         <span class="prev click" (click)="prevBut()"><i class="fa fa-angle-left"></i></span>
-      <span class="next click" (click)="nextBut()"><i class="fa fa-angle-right"></i></span>
+        <span class="next click" (click)="nextBut()"><i class="fa fa-angle-right"></i></span>
+        <!---------------- car rental component -----------------> 
+        <app-rental-form style="position: relative; bottom:60px;"></app-rental-form>
+  </div>
   ` ,
   styles: [
     `
+    .outer-container{
+      position:relative;
+      background-Color:black;
+      max-height:90vh
+    }
+
     .itemsContainer{
-      display : none
+      display : none;
+      position : relative;
     }
 
     .active{
       display : block;
     }
 
-    .slide-container{
-      position : relative;
-    }
-
     .click{
       color : white;
       position : absolute;
-      top : 45%;
+      top : 50%;
       cursor : pointer;
       background : var(--accent);
       padding : 10px;

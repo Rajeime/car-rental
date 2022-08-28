@@ -20,10 +20,12 @@ import { FormBuilder , Validators} from '@angular/forms';
       cursor:pointer
     }
 
-    .carListHeading{
+    .heading{
       text-align: center; 
       font-family: 'Poppins', sans-serif; 
       font-weight: 300 ; 
+    }
+    .carListHeading{
       line-height: 10px;
     }
     .seeMore{
@@ -35,6 +37,10 @@ import { FormBuilder , Validators} from '@angular/forms';
 
     .paginator-container{
     margin: 40px
+  }
+
+  .services{
+    color:white;
   }
     `
   ]

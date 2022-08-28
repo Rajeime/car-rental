@@ -5,7 +5,7 @@
     <div class="leftInfo">
         <section>
             <p class="pickUp">{{pickUpTime.pickUpLocation}}</p>
-            <p class="timeInfo">{{pickUpTime.pickUpDate}} , {{pickUpTime.pickUpTime}} </p>
+            <p class="timeInfo">{{pickUpTime.pickUpDate}} , {{pickUpTime.time}} </p>
         </section>
 
         <section style="margin: 20px;">
@@ -14,11 +14,12 @@
 
         <section>
             <p class="pickUp">{{pickUpTime.dropOffLocation}}</p>
-            <p class="timeInfo">{{pickUpTime.dropOffDate}} , {{pickUpTime.dropOffTime}} </p>
+            <p class="timeInfo">{{pickUpTime.dropOffDate}} , {{pickUpTime.time}} </p>
         </section>
     </div>
 
-    <div><button class="editButton"routerLink="/home">Edit</button></div>
+    <div><button class="editButton" (click)="editButton()">Edit</button></div>
+    <app-rental-form *ngIf="clickedEdit == true"></app-rental-form>
     
 </div>
 
@@ -81,7 +82,7 @@
                 <div>
                     <p>Price for {{days.days}} {{days.days < 2 ? 'day':'days'}}</p> 
                     <h1>{{car.price * days.days | currency}}</h1>
-                    <button class="getCar">View Deal</button>
+                    <button class="getCar" (click)="viewDeal(car, days)">Rent</button>
                 </div>
             </section>
         </div>
@@ -93,6 +94,14 @@
     <div class="map">
         
     </div>
+</div>
+
+<div class="paginator-container">
+    <mat-paginator 
+            [length]="100"   
+            [pageSize]= 6
+            aria-label="Select page">
+    </mat-paginator>
 </div>
 
 

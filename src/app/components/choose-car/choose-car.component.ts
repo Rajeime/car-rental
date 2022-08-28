@@ -17,10 +17,10 @@ export class ChooseCarComponent implements OnInit {
     private carService : CarServiceService
     ) { }
   
-  pickUpTime!:PickUpForm
-
-  cars:Cars[] = []
-  days!:any
+  pickUpTime!:PickUpForm;
+  cars:Cars[] = [];
+  days!:any;
+  clickedEdit:boolean = false
 
   ngOnInit(): void {
     // console.log(this.router.url);
@@ -62,7 +62,11 @@ export class ChooseCarComponent implements OnInit {
     
   }
 
-  
+  editButton(){
+    this.clickedEdit = true
+  }
     
-   
+  viewDeal(car:any, days:any){
+    console.log(car,days)
+  }
 }

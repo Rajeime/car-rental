@@ -8,12 +8,15 @@ import { SlideShowComponent } from './components/slide-show/slide-show.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RentalFormComponent } from './components/rental-form/rental-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarsComponent } from './components/cars/cars.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ChooseCarComponent } from './components/choose-car/choose-car.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FooterComponent } from './components/footer/footer.component';
+import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CarsComponent,
     AboutUsComponent,
     ChooseCarComponent,
+    FooterComponent,
+    AdminDashBoardComponent,
 
   ],
   imports: [
@@ -33,7 +38,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { RentalInfoService } from 'src/app/services/rental-info.service'; 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { timeMatch } from './timeMatch'; 
 
 @Component({
   selector: 'app-rental-form',
@@ -12,16 +13,19 @@ import { Location } from '@angular/common';
 export class RentalFormComponent implements OnInit {
 
   
- days!:number
+ days!:number;
+ submitted = false;
+ min:any;
+ nextTime:any;
+ anotherTime:any;
 
   //form that accepts data from initial rental form
   rentalForm = this.fb.group({
     pickUpLocation : ['' , Validators.required],
     dropOffLocation : ['' , Validators.required],
     pickUpDate : ['' , Validators.required], 
-    pickUpTime : ['' , Validators.required], 
     dropOffDate : ['' , Validators.required], 
-    dropOffTime : ['' , Validators.required]
+    time : ['' , Validators.required],
   })
 
   
@@ -33,22 +37,21 @@ export class RentalFormComponent implements OnInit {
       ) {}
 
   rentalFormButton(){
+    this.submitted = true
     console.log(new Date().toISOString().split('T')[0]);
     this.validateDate();
     this.calculateDate();
-    if(this.rentalForm.valid){
+    if(this.rentalForm.valid && this.validateDate() == true){
       const dataPassed = [
         this.rentalForm.value,
         {days : this.days}
       ];
       
-      localStorage.setItem('rentalData', JSON.stringify(dataPassed ));
+      localStorage.setItem('rentalData', JSON.stringify(dataPassed));
       this.router.navigateByUrl('/choose');
     }
   
   }
-
-  
 
   //locations available
   locations:string[]=[
@@ -60,10 +63,13 @@ export class RentalFormComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.disableDate();
     let data = localStorage.getItem('rentalData');
-    console.log(data)
+    console.log(data);
+
   }
 
+  
   validateDate() {
     const date = this.rentalForm.controls['pickUpDate'].value; //get pick up date value
     const now = new Date().toISOString().split('T')[0];   //get the current date
@@ -73,6 +79,7 @@ export class RentalFormComponent implements OnInit {
         return true; //date is today or some day forward
 }}
 
+//<----------- function to calculate the amount of days a car is rented ----------->
 calculateDate(){
   const pickUpDate = new Date(this.rentalForm.controls['pickUpDate'].value ).getTime();
   const dropOffDate = new Date(this.rentalForm.controls['dropOffDate'].value).getTime();
@@ -81,9 +88,36 @@ calculateDate(){
   this.days = days
 }
 
+//<----------- function that disallows date picking before current date ----------->
+disableDate(){
+  const tDay = new Date();
+  
+  var month:any = tDay.getMonth() + 1;
+  var day:any = tDay.getDate();
+  var year = tDay.getFullYear();
+
+  if(month < 10)
+    month = '0' + month.toString();
+  
+  if(day < 10)
+    day = '0' + day.toString();
+
+  var maxDate = year + '-' + month + '-' + day ;
+  this.min = maxDate
+}
+
+//<-------------- function that runs on change for date input field -------------->
+changeNext(){
+  this.otherDate()
+}
+
+otherDate(){
+ 
+}
+
 //return form control of forms
-// get createControl(){
-//   return this.rentalForm.controls;
-// }
+get rentalControl(){
+  return this.rentalForm.controls;
+}
 
 }
