@@ -238,10 +238,15 @@ line-height: 10px;
 
 .map{
   width: 33%;
-  margin: 0 10px;
-  height: 266px;
+  margin: 6px 10px 0 10px;
+  height: 570px;
   overflow: hidden;
-  border: 1px solid red;
+  border : 1px solid rgba(187, 186, 186, 0.486);
+  border-radius : 4px;
+  position: sticky;
+  right: 10px;
+  top: 10px;
+  background-color: red;
 }
 
 

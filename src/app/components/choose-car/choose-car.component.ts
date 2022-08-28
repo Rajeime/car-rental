@@ -20,16 +20,18 @@ export class ChooseCarComponent implements OnInit {
   pickUpTime!:PickUpForm
 
   cars:Cars[] = []
-
+  days!:any
 
   ngOnInit(): void {
-    console.log(this.router.url);
+    // console.log(this.router.url);
     let data = localStorage.getItem('rentalData');
     let obj =  JSON.parse(data!);
-    this.pickUpTime = obj;
+    this.pickUpTime = obj[0];
+    this.days = obj[1]
     this.carService.getCars().subscribe((result)=>{
         this.cars = result
     })
+    console.log(this.days)
   }
 
   carTypes:string[]=[

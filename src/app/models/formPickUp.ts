@@ -12,7 +12,7 @@ export class PickUpForm {
     pickUpDate? : string,
     pickUpTime? : string,
     dropOffDate? : string,
-    dropOffTime? : string
+    dropOffTime? : string,
     ) 
 
     {

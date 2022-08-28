@@ -3,7 +3,6 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { RentalInfoService } from 'src/app/services/rental-info.service'; 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-rental-form',
@@ -12,7 +11,8 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
 })
 export class RentalFormComponent implements OnInit {
 
- 
+  
+ days!:number
 
   //form that accepts data from initial rental form
   rentalForm = this.fb.group({
@@ -37,11 +37,18 @@ export class RentalFormComponent implements OnInit {
     this.validateDate();
     this.calculateDate();
     if(this.rentalForm.valid){
-      localStorage.setItem('rentalData', JSON.stringify(this.rentalForm.value));
+      const dataPassed = [
+        this.rentalForm.value,
+        {days : this.days}
+      ];
+      
+      localStorage.setItem('rentalData', JSON.stringify(dataPassed ));
       this.router.navigateByUrl('/choose');
     }
   
   }
+
+  
 
   //locations available
   locations:string[]=[
@@ -69,9 +76,14 @@ export class RentalFormComponent implements OnInit {
 calculateDate(){
   const pickUpDate = new Date(this.rentalForm.controls['pickUpDate'].value ).getTime();
   const dropOffDate = new Date(this.rentalForm.controls['dropOffDate'].value).getTime();
-  const daysMillisecond = dropOffDate - pickUpDate 
-  const days = daysMillisecond/86400000
-  console.log(`${days} days`)
+  const daysMillisecond = dropOffDate - pickUpDate ;
+  const days = daysMillisecond/86400000;
+  this.days = days
 }
+
+//return form control of forms
+// get createControl(){
+//   return this.rentalForm.controls;
+// }
 
 }
