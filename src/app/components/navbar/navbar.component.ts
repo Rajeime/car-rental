@@ -30,12 +30,12 @@ import { Location } from '@angular/common';
       display : flex;
       justify-content : space-around;
       align-items : center;
-      background-color : black;
+      background-color : white;
       font-family : sans-serif;
     }
 
     .logo h4{
-      color : white;
+      color : black;
       font-weight : 400;
       font-size : 18px;
       text-transform : uppercase;
@@ -50,16 +50,16 @@ import { Location } from '@angular/common';
       padding : 0px 10px;
       text-transform : uppercase;
       font-size : 12px;
-      color : white;
+      color : black;
       font-family : sans-serif;
       cursor:pointer;
     }
 
     .rent{
       background-Color : transparent;
-      border : 1px solid white;
+      border : 1px solid black;
       padding : .4rem .6rem;
-      color : white;
+      color : black;
       text-transform : uppercase;
       font-size : 12px;
       cursor : pointer;
@@ -69,14 +69,13 @@ import { Location } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private router: Router , private location : Location) { }
+  constructor( 
+    private router: Router , 
+    private location : Location) { }
   
 
   ngOnInit():void {
-    // console.log(this.location.path());
-    // if(this.location.path() == '/choose'){
-    //   alert('love'); 
-    // }
+    
   }
 
 }

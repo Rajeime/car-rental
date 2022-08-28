@@ -125,7 +125,7 @@ export class SlideShowComponent implements OnInit , OnDestroy{
   }
 
   //<--------- array for storing cars from database --------->
-  cars:Cars[] = []
+  cars:Cars[] = [] 
 
   //prev button for slideshow
   prevBut():void{

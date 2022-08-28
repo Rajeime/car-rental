@@ -32,54 +32,54 @@ import { FormBuilder , Validators} from '@angular/forms';
       margin-top: 10px; 
       cursor: pointer;
     }
+
+    .paginator-container{
+    margin: 40px
+  }
     `
   ]
 })
 export class HomePageComponent implements OnInit {
 
-
-
-  //<---------------- form that accepts data from initial rental form ---------------->
+    //<---------------- form that accepts data from initial rental form ---------------->
     postCar = this.fb.group({
-      pickUpLocation : ['', Validators.required],
-      pickUpDate : ['', Validators.required],
-      pickUpTime : ['', Validators.required],
-      dropOffDate : ['' , Validators.required],
-      dropOffTime : ['' , Validators.required]
+        pickUpLocation : ['', Validators.required],
+        pickUpDate : ['', Validators.required],
+        pickUpTime : ['', Validators.required],
+        dropOffDate : ['' , Validators.required],
+        dropOffTime : ['' , Validators.required]
     })
 
     constructor( private carService : CarServiceService , private fb: FormBuilder) { }
   
+    //array to save all cars coming from database
+    cars:Cars[] = [];
 
-  cars:Cars[] = [];
+        //paginator variables
+    pageOptions = [6, 12, 18, 100];
 
-  spliceContent:number = 3
+
+    pageNumber!:number 
+
+    pageSize(event:any){
+        const pageNumber = event.pageSize
+        this.pageNumber = pageNumber
+    };
   
-  ngOnInit(): void {
-    this.carService.getCars().subscribe((result)=>{
-      this.cars = result
+    ngOnInit(): void {
+        this.carService.getCars().subscribe((result)=>{
+            this.cars = result.splice(0,6)
+        })
+ 
+    };
+
+    postCarButton():void{  
+     // const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
+        this.carService.createItem(this.postCar.value).subscribe(()=>{
+        alert('car added');
     })
-  }
-
-// <--------------- see more button function  --------------->
-  seeMore():void{
-    if(this.spliceContent < this.cars.length){
-      this.spliceContent += 3
-    }
 
   }
 
-// <--------------- see less button function  --------------->
-  seeLess():void{
-    this.spliceContent -= 3
-  }
-
-  postCarButton():void{  
-    // const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
-    this.carService.createItem(this.postCar.value).subscribe(()=>{
-      alert('car added')
-  })
-
-  }
-
+ 
 }

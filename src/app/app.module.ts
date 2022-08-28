@@ -13,7 +13,7 @@ import { CarsComponent } from './components/cars/cars.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ChooseCarComponent } from './components/choose-car/choose-car.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { MatSliderModule } from '@angular/material/slider';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

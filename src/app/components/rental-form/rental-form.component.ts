@@ -1,15 +1,18 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
-import { RentalInfoService } from 'src/app/services/rental-info.service';
+import { RentalInfoService } from 'src/app/services/rental-info.service'; 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-rental-form',
-  templateUrl: './rental-form.component.html',
-  styleUrls: ['./rental-form.component.css'],
+  templateUrl: './rental-form.component.html', 
+  styleUrls: ['./rental-form.component.css'], 
 })
 export class RentalFormComponent implements OnInit {
+
+ 
 
   //form that accepts data from initial rental form
   rentalForm = this.fb.group({
@@ -21,6 +24,7 @@ export class RentalFormComponent implements OnInit {
     dropOffTime : ['' , Validators.required]
   })
 
+  
   constructor( 
       private fb: FormBuilder , 
       private rentaInfo:RentalInfoService ,
@@ -29,22 +33,45 @@ export class RentalFormComponent implements OnInit {
       ) {}
 
   rentalFormButton(){
-    localStorage.setItem('rentalData', JSON.stringify(this.rentalForm.value));
-    this.router.navigateByUrl('/choose');
+    console.log(new Date().toISOString().split('T')[0]);
+    this.validateDate();
+    this.calculateDate();
+    if(this.rentalForm.valid){
+      localStorage.setItem('rentalData', JSON.stringify(this.rentalForm.value));
+      this.router.navigateByUrl('/choose');
+    }
+  
   }
 
   //locations available
   locations:string[]=[
-    'Kingston',
+    'Kingston', 
     'St Andrew',
     'St Catherine',
     'St Mary',
-    'Portland',
+    'Portland'
   ]
 
   ngOnInit(): void {
     let data = localStorage.getItem('rentalData');
-    console.log(data);
+    console.log(data)
   }
+
+  validateDate() {
+    const date = this.rentalForm.controls['pickUpDate'].value; //get pick up date value
+    const now = new Date().toISOString().split('T')[0];   //get the current date
+    if (date < now) {
+        return false; //date is before today's date
+    } else {
+        return true; //date is today or some day forward
+}}
+
+calculateDate(){
+  const pickUpDate = new Date(this.rentalForm.controls['pickUpDate'].value ).getTime();
+  const dropOffDate = new Date(this.rentalForm.controls['dropOffDate'].value).getTime();
+  const daysMillisecond = dropOffDate - pickUpDate 
+  const days = daysMillisecond/86400000
+  console.log(`${days} days`)
+}
 
 }

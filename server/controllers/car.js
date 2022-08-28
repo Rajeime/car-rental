@@ -26,11 +26,24 @@ const uploadImage = (req, res) => {
 
 //<---------- get all cars from database ---------->
 const getAllCars =  async (req, res)=> {
-    try{
-        let car = await Cars.find();
-        res.status(200).json(car)
-
-    }catch(error){
+    
+        try{
+            
+            if(req.query.carType){
+                filter = {'car_Type' : req.query.carType.split(',')}
+            
+                let car = await Cars.find(filter)
+                res.status(201).json(car)
+                console.log(car)
+            }
+               
+            else{
+                let cars = await Cars.find();
+                res.status(200).json(cars)
+                // console.log(req.query)
+            }
+       
+        }catch(error){
         res.status(400).json({message: "Cannot find car collection"})
     }
 }
@@ -99,5 +112,6 @@ module.exports = {
     editCar,
     deleteCar,
     findCarById,
-    uploadImage
+    uploadImage,
+    // findCarByType
 }

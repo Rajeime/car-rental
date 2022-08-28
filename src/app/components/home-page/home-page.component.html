@@ -1,7 +1,7 @@
 <!---------------- slideshow component ----------------->
 <app-slide-show [autoSlide]="false"></app-slide-show> 
 
-<!---------------- car rental component ----------------->
+<!---------------- car rental component -----------------> 
 <app-rental-form></app-rental-form>
 
 <div style="margin: 30px 0px;">
@@ -11,29 +11,20 @@
 
 <!---------------- car card component ----------------->
 <div class="cars">
-    <app-cars [car]="car" *ngFor="let car of cars.slice(0, spliceContent)" class="car-item"></app-cars>
+    <app-cars [car]="car" *ngFor="let car of cars" class="car-item"></app-cars>
 </div>
 
-<div style="text-align:center;">
-    <i class="fa fa-angle-double-down seeMore" aria-hidden="true" *ngIf="spliceContent < 6" (click)="seeMore()"></i>
-    <i class="fa fa-angle-double-up seeMore" aria-hidden="true" *ngIf="spliceContent >= 6" (click)="seeLess()"></i>
+<div class="paginator-container">
+    <mat-paginator 
+            [length]="100"   
+            [pageSize]= 6
+            (page)="pageSize($event)"
+            [pageSizeOptions]= pageOptions
+            aria-label="Select page">
+    </mat-paginator>
 </div>
 
-<!---------------- another component ----------------->
-<!-- <div class="filler" style="height: 40vh; margin-top:30px">
-    <form [formGroup]="postCar" (submit)="postCarButton()">
-        <input type="text" placeholder="car_Type">
-        <input type="text" placeholder="car_Model">
-        <input type="text" placeholder="car_img">
-        <input type="text" placeholder="car_Make">
-        <input type="number" placeholder="car_Year">
-        <input type="number" placeholder="price">
-        <input type="number" placeholder="times_rented">
-        <input type="number" placeholder="quantity">
 
-        <button>Submit</button>
-    </form>
-</div> -->
-<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+
 
 

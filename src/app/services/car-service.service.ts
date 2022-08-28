@@ -32,5 +32,10 @@ export class CarServiceService {
   deleteCar(carID: string) {
     return this.http.delete<Cars>(this.apiUrl + carID);
   }
+
+  //<--------------- service getting car by type --------------- >
+  getCarByType(type:string){
+    return this.http.get<Cars>(this.apiUrl + '?carType=' + type)
+  }
 }
 

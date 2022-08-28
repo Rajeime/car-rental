@@ -1,3 +1,7 @@
+/* *{
+  border: 1px solid;
+} */
+
 .infoPassed{
     /* border: 2px solid #ffb700;  */
     border : 2px solid #ffb7008c; 
@@ -34,6 +38,7 @@
     color : white; 
     border : none; 
     border-radius : 2px;
+    cursor: pointer;
   }
 
 
@@ -62,7 +67,182 @@
  
  }
 
+.carTypes .selected{
+  border: 1px solid rgb(2, 2, 120);
+  background-color : rgba(2, 2, 120, 0.064);
+}
 
+.carsAndMap{
+  display: flex;
+  border-radius : 4px;
+  margin:40px 6% ;
+  /* border : 1px solid rgba(187, 186, 186, 0.486); */
+
+}
+
+.car-details{
+  display: flex; 
+  flex-direction:column; 
+  width: 66%; 
+  
+}
+
+
+.car-detail{
+  height:200px;
+  overflow: auto;
+  border : 1px solid rgba(187, 186, 186, 0.486);
+  margin: 6px;
+  border-radius : 4px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+
+
+
+.car-detail-pic{
+  /* background-color: #efeff0; */
+  background-color: rgb(238, 238, 238);
+  grid-column: 1/2;
+
+}
+
+.car-detail-info{
+  margin: 0px 10px;
+  grid-column: 2/4;
+  line-height: 10px;
+  padding: 0px 8px;
+}
+
+.car-detail-info .car-type{
+  color: rgba(86, 86, 86, 0.728) ;
+}
+
+.car-detail-info .car-name{
+  font-size: 24px;
+}
+
+.car-detail-getCar{
+  border-left: 1px solid rgba(210, 209, 209, 0.486);
+  grid-column: 4/5;
+  position: relative;
+}
+
+.car-detail-getCar .getCar{
+  padding : calc(4px*2) calc(4px*4);
+  color : white; 
+  border : none; 
+  border-radius : 2px;
+  cursor: pointer;
+  background-color: #068323;;
+  display: block;
+  margin: auto;
+  width: 90%;
+  position: relative;  
+}
+
+.car-detail-getCar  div{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.car-detail-info .specifics {
+  display: flex;
+  border-bottom: 1px solid rgba(139, 138, 138, 0.486);
+}
+
+.car-detail-info .specs{
+  position: relative;
+  cursor: pointer;
+}
+
+
+.car-detail-info .specs  .tooltiptext {
+  visibility: hidden;
+  min-width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  line-height: 18px;
+  top: -24px;
+  right: 50%;
+  transform: translate(50%);
+}
+
+.car-detail-info .specs:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+.car-detail-info .specifics .specs{
+  display: flex;
+  align-items: center;
+  margin: 0px 18px 0px 0px;
+}
+
+.car-detail-info .specifics .specs .spec-img{
+  height:20px
+}
+
+.car-detail-info .specs-path{
+  height: 1px;
+}
+
+.car-detail-info .quote {
+  display: flex;
+  align-items: center;
+  margin: 16px auto;
+}
+
+.car-detail-info .quote div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.car-detail-info .quote a{
+  text-decoration: none;
+  color: #1273c4;
+  margin-left: 4px;
+}
+
+.car-detail-info .quote a:hover{
+  text-decoration: underline;
+}
+
+.car-detail-getCar p, .car-detail-getCar h1{
+text-align: center;
+line-height: 10px;
+}
+
+.car-detail-getCar p{
+  font-weight: 200;
+  color: rgb(40, 40, 40);
+  min-width:120px ;
+}
+
+.car-detail-getCar h1{
+  font-weight: 400;
+  color: rgb(40, 40, 40);
+}
+
+.map{
+  width: 33%;
+  margin: 0 10px;
+  height: 266px;
+  overflow: hidden;
+  border: 1px solid red;
+}
 
 
 
