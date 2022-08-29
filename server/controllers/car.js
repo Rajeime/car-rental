@@ -30,17 +30,15 @@ const getAllCars =  async (req, res)=> {
         try{
             
             if(req.query.carType){
-                filter = {'car_Type' : req.query.carType.split(',')}
-            
-                let car = await Cars.find(filter)
-                res.status(201).json(car)
+                filter = {'car_Type' : req.query.carType.split(',')};
+                let car = await Cars.find(filter);
+                res.status(201).json(car);
                 console.log(car)
             }
                
             else{
                 let cars = await Cars.find();
                 res.status(200).json(cars)
-                // console.log(req.query)
             }
        
         }catch(error){
@@ -52,7 +50,7 @@ const getAllCars =  async (req, res)=> {
 const postCar = async (req, res)=>{     
     
         try{
-            let car = await Cars.create(req.body)
+            let car = await Cars.create(req.body);
             res.status(201).json(car)
             
         }catch(error){
@@ -63,11 +61,11 @@ const postCar = async (req, res)=>{
 
 //<---------- edit cars in database ---------->
 const editCar = async (req, res)=>{
-        let id = req.params.id
-        let data = req.body
+        let id = req.params.id;
+        let data = req.body;
 
     try{
-        let car = await Cars.findByIdAndUpdate(id, data)
+        let car = await Cars.findByIdAndUpdate(id, data);
         res.status(201).json(car)
         
     }catch(error){
@@ -81,7 +79,7 @@ const deleteCar = async (req, res)=>{
     let id = req.params.id
 
     try{
-        let car = await Cars.findByIdAndDelete(id)
+        let car = await Cars.findByIdAndDelete(id);
         res.status(201).json(`car with id number ${id} deleted`)
         
     }catch(error){
@@ -95,7 +93,7 @@ const findCarById = async (req, res)=>{
     let id = req.params.id
 
     try{
-        let car = await Cars.findById(id)
+        let car = await Cars.findById(id);
         res.status(201).json(car)
 
     }catch(error){
@@ -105,13 +103,11 @@ const findCarById = async (req, res)=>{
 }
 
 
-
 module.exports = {
     getAllCars,
     postCar,
     editCar,
     deleteCar,
     findCarById,
-    uploadImage,
-    // findCarByType
+    uploadImage
 }

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AdminDashBoardComponent } from './components/admin-dash-board/admin-das
     ChooseCarComponent,
     FooterComponent,
     AdminDashBoardComponent,
+    OrderSummaryComponent,
 
   ],
   imports: [

@@ -7,7 +7,6 @@ router
 .route('/cars')
 .get(carRoute.getAllCars)
 .post(carRoute.postCar)
-// .get(carRoute.findCarByType);
 
 //<------------- get and update cars by specific id ------------->
 router
@@ -19,11 +18,6 @@ router
 router
 .route('/images')
 .post(carRoute.uploadImage);
-
-//<------------- find car by type ------------->
-// router
-// .route('/cars/cartype')
-// .get(carRoute.findCarByType);
 
 
 module.exports = router
