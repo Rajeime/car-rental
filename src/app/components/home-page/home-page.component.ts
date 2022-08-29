@@ -66,22 +66,26 @@ export class HomePageComponent implements OnInit {
     //array to save all cars coming from database
     cars:Cars[] = [];
 
-        //paginator variables
-    pageOptions = [6, 12, 18, 100];
-
+    pageSlice:Cars[]=[]
 
     pageNumber!:number 
 
     pageSize(event:any){
-        const pageNumber = event.pageSize
-        this.pageNumber = pageNumber
+      console.log(event)
+        const startIndex = event.pageIndex * event.pageSize;
+        let endIndex = startIndex + event.pageSize;
+        if(endIndex > this.cars.length){
+          endIndex = this.cars.length
+        }
+        this.pageSlice = this.cars.slice(startIndex, endIndex)
     };
   
     ngOnInit(): void {
         this.nav.show()
         this.nav.changeColorBack()
         this.carService.getCars().subscribe((result)=>{
-            this.cars = result.splice(0,6)
+            this.cars = result
+            this.pageSlice = this.cars.slice(0 , 6)
         })
  
     };

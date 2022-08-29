@@ -51,12 +51,3 @@
     max-width: 54px;
 }
 
-.errors{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.errors span{
-    color: red;
-}

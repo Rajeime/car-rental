@@ -8,15 +8,15 @@
 
 <!---------------- car card component ----------------->
 <div class="cars">
-    <app-cars [car]="car" *ngFor="let car of cars" class="car-item"></app-cars>
+    <app-cars [car]="car" *ngFor="let car of pageSlice" class="car-item"></app-cars>
 </div>
 
 <div class="paginator-container">
     <mat-paginator 
-            [length]="100"   
+            [length]= cars.length        
             [pageSize]= 6
+            [pageSizeOptions]= '[6, 12, 18, 100]'
             (page)="pageSize($event)"
-            [pageSizeOptions]= pageOptions
             aria-label="Select page">
     </mat-paginator>
 </div>

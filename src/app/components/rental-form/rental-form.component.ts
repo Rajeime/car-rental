@@ -38,7 +38,7 @@ export class RentalFormComponent implements OnInit {
 
   rentalFormButton(){
     this.submitted = true
-    console.log(new Date().toISOString().split('T')[0]);
+    console.log(this.validateDate())
     this.validateDate();
     this.calculateDate();
     if(this.rentalForm.valid){
@@ -49,6 +49,10 @@ export class RentalFormComponent implements OnInit {
       
       localStorage.setItem('rentalData', JSON.stringify(dataPassed));
       this.router.navigateByUrl('/choose');
+    }
+
+    else{
+      alert('Fill out all fields')
     }
   
   }
