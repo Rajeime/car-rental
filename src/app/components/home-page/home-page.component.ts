@@ -66,10 +66,10 @@ export class HomePageComponent implements OnInit {
     //array to save all cars coming from database
     cars:Cars[] = [];
 
-    pageSlice:Cars[]=[]
+    //<-------- array for showing a partial amount of cars for paginator -------->
+    pageSlice:Cars[]=[];
 
-    pageNumber!:number 
-
+    //<-------- paginator event -------->
     pageSize(event:any){
       console.log(event)
         const startIndex = event.pageIndex * event.pageSize;
@@ -77,26 +77,17 @@ export class HomePageComponent implements OnInit {
         if(endIndex > this.cars.length){
           endIndex = this.cars.length
         }
-        this.pageSlice = this.cars.slice(startIndex, endIndex)
+        this.pageSlice = this.cars.slice(startIndex, endIndex);
     };
   
     ngOnInit(): void {
-        this.nav.show()
-        this.nav.changeColorBack()
+       //<-------- allows navbar to be visible on homepage -------->
+        this.nav.show();
+        //<-------- assigns initial color to navabar -------->
+        this.nav.changeColorBack();
         this.carService.getCars().subscribe((result)=>{
             this.cars = result
             this.pageSlice = this.cars.slice(0 , 6)
-        })
- 
+        });
     };
-
-    postCarButton():void{  
-     // const { car_Type , car_Model ,  car_Img , car_Make ,  car_Year , price ,  times_rented , quantity  } = this.postCar.value
-        this.carService.createItem(this.postCar.value).subscribe(()=>{
-        alert('car added');
-    })
-
-  }
-
- 
 }

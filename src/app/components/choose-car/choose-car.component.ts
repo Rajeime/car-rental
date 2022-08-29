@@ -22,18 +22,32 @@ export class ChooseCarComponent implements OnInit {
   pickUpTime!:PickUpForm;
   cars:Cars[] = [];
   days!:any;
-  clickedEdit:boolean = false
+  clickedEdit:boolean = false;
+
+  pageSlice:Cars[]=[];
+
+   //<-------- paginator event -------->
+   pageSize(event:any){
+    console.log(event)
+      const startIndex = event.pageIndex * event.pageSize;
+      let endIndex = startIndex + event.pageSize;
+      if(endIndex > this.cars.length){
+        endIndex = this.cars.length
+      }
+      this.pageSlice = this.cars.slice(startIndex, endIndex);
+  };
 
   ngOnInit(): void {
     this.nav.show()
     this.nav.changeColorFunc()
-    // console.log(this.router.url);
+    //<---------------- retrieveing data from local storage ----------------->
     let data = localStorage.getItem('rentalData');
     let obj =  JSON.parse(data!);
     this.pickUpTime = obj[0];
     this.days = obj[1]
     this.carService.getCars().subscribe((result)=>{
-        this.cars = result
+        this.cars = result;
+        this.pageSlice = this.cars.slice(0 , 6) 
     })
     console.log(this.days)
   }
