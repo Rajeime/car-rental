@@ -41,7 +41,7 @@ export class RentalFormComponent implements OnInit {
     console.log(new Date().toISOString().split('T')[0]);
     this.validateDate();
     this.calculateDate();
-    if(this.rentalForm.valid && this.validateDate() == true){
+    if(this.rentalForm.valid){
       const dataPassed = [
         this.rentalForm.value,
         {days : this.days}
@@ -69,7 +69,7 @@ export class RentalFormComponent implements OnInit {
 
   }
 
-  
+
   validateDate() {
     const date = this.rentalForm.controls['pickUpDate'].value; //get pick up date value
     const now = new Date().toISOString().split('T')[0];   //get the current date

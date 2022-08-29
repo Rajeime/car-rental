@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import { Cars } from 'src/app/models/car';
 import { FormBuilder , Validators} from '@angular/forms';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 
 @Component({
   selector: 'app-home-page',
@@ -56,7 +57,11 @@ export class HomePageComponent implements OnInit {
         dropOffTime : ['' , Validators.required]
     })
 
-    constructor( private carService : CarServiceService , private fb: FormBuilder) { }
+    constructor( 
+      private carService : CarServiceService , 
+      private fb: FormBuilder,
+      public nav : NavBarService
+      ) { }
   
     //array to save all cars coming from database
     cars:Cars[] = [];
@@ -73,6 +78,8 @@ export class HomePageComponent implements OnInit {
     };
   
     ngOnInit(): void {
+        this.nav.show()
+        this.nav.changeColorBack()
         this.carService.getCars().subscribe((result)=>{
             this.cars = result.splice(0,6)
         })

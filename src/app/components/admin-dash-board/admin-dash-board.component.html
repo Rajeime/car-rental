@@ -1,1 +1,61 @@
-<p>admin-dash-board works!</p>
+  <!-- admin sidebar starts here -->
+  <div class="admin-sidebar">
+    <p style="margin-left: 20px; font-size:26px; color: white;">Logo</p>
+    <a href="#" class="adminHome active"><i class="fas fa-car"></i> Cars</a>
+    <a href="#" class="department"><i class="fa-solid fa-building"></i> Department</a>
+    <a href="#" class="department"><i class="fa fa-pie-chart"></i> Chart </a>
+    <a href="#" class="department"><i class="fa-solid fa-gear"></i> Settings</a>
+</div>
+<!-- admin sidebar ends here -->
+
+<!-- admin header section -->
+<div class="admin-main">
+
+<div class="admin-main-head" style="position: sticky; top:0; z-index:6">
+    <h2 class="admin-main-person">Supervisor</h2>
+    <div style="display: flex; justify-content:space-around; align-items: center;">
+        <div style="position: relative;">
+            <input type="search" name="" id="" placeholder="Search" style="margin:0px 10px ;padding: 6px; width: 200px;" >
+            <i class="fa fa-search" aria-hidden="true" style="position: absolute; right:20px; top:50%; transform: translateY(-50%);"></i>
+        </div>
+        <i class="fas fa-bell" style="margin:0px 10px ;"></i>
+        <i class="fa-solid fa-user" style="margin:0px 10px ;"></i>
+    </div>
+</div>
+<!-- admin header section ends here -->
+
+<div class="admin-main-section">
+    <!-- content goes here -->
+    <div class="home">
+        <table class=" table">
+            <thead class="table-head" >
+                <tr class="row">
+                    <th scope="col">Make</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Event Type</th>
+                </tr>
+            </thead>
+                
+            <tr class="row" *ngFor="let car of cars">  
+                <td>{{car.car_Make}}</td>
+                <td>{{car.car_Model}}</td>
+                <td>{{car.car_Year}}</td>
+                <td>{{car.car_Type}}</td>
+                <td>{{car.quantity}}</td>
+                <td>
+                    <a href="" class="edit">update</a>
+                    <a href="" class="delete">remove</a>
+                </td>
+            </tr>
+                
+        </table>
+
+    </div> 
+    <!-- content ends here -->
+</div>
+
+
+</div>

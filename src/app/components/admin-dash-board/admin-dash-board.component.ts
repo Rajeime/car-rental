@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cars } from 'src/app/models/car';
+import { CarServiceService } from 'src/app/services/car-service.service';
 
 @Component({
   selector: 'app-admin-dash-board',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashBoardComponent implements OnInit {
 
-  constructor() { }
+  cars:Cars[]=[]
+
+  constructor(private carService : CarServiceService) { }
 
   ngOnInit(): void {
+    this.carService.getCars().subscribe((result)=>{
+      this.cars = result
+    })
   }
 
 }

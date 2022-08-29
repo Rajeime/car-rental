@@ -1,0 +1,178 @@
+
+/* design for sidenav and main section */
+/* welcome page design */
+.admin-sidebar{
+    background-color: #222d32;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 16px;
+    position: fixed;
+    top: 0;
+    width: 230px;
+    z-index: 1;
+  } 
+
+.admin-sidebar a {
+    color: white;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: .8rem 1rem;
+    text-decoration: none;
+  }
+
+.admin-sidebar i{
+   font-size: 16px;
+}
+
+.admin-sidebar .active{
+    background: #0d1214;
+}
+
+.admin-sidebar a:hover:not(.active){
+    background-color:#0d1214;;
+}
+  
+
+.admin-main {
+    background-color:#dee6f725 ;
+    font-family: Roboto,Arial,sans-serif;
+    margin-left: 230px;
+  } 
+
+.admin-main-head{
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid rgb(218, 218, 218);
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+}
+
+.admin-main-head .admin-main-person{
+    color: #222d32;;
+}
+
+.admin-main-head .logout , .salaryButton{
+    background-color: #f95738;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: .6rem .8rem;
+}
+
+.salaryButton{   
+    background:#cf4242;
+    color: #e3e9c2;
+    display: block;
+    margin: 10px auto;
+    text-transform: uppercase;   
+    box-shadow: 1px 1.5px #b83939;
+}
+
+.salaryButton:hover{    
+    background: #b93131;
+    color: #e3e9c2; 
+    transition: 0.3s;
+    box-shadow: 1px 1.5px #ae2d2d;
+}
+
+.admin-main-head .logout:hover{
+    background-color: #ee964b;
+}
+
+.admin-main-head .logout a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.admin-main h2{
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.admin-main .admin-main-section{
+    background-color: white;
+    border-radius: 4px;
+    height: calc(100vh - 100px);
+    margin: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.admin-main-section .table{
+    color: #6B7280; 
+    border-collapse: collapse;
+    display: table; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    text-align: left; 
+    width: 100%; 
+}
+
+.admin-main-section .table-head{
+    background-color: #F9FAFB; 
+    color: #374151; 
+    font-size: 0.75rem;
+    line-height: 1rem; 
+    text-transform: uppercase; 
+}
+
+.admin-main-section .table th{
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+}
+
+.admin-main-section .table td{
+    padding: 4px;
+}
+
+.admin-main-section .table .row{
+    border-bottom: 2px solid rgb(242, 242, 242);
+    background-color: #ffffff;     
+}
+
+.admin-main-section .table td{
+    padding-top: 1rem 1.5rem;
+}
+
+.admin-main-section .table a{
+    color: #ffffff;
+    border-radius: 0.25rem; 
+    border-width: 1px; 
+    display: inline-block; 
+    font-weight: 400; 
+    line-height: 1.5; 
+    padding: 0.25rem 0.75rem;
+    text-align: center; 
+    text-decoration: none; 
+    user-select: none;  
+    vertical-align: middle;
+}
+
+.admin-main-section .table .edit{
+    background-color: #10B981; 
+    margin: 6px;
+   
+}
+
+.admin-main-section .table .edit:hover{
+    background-color: #0fa976; 
+   
+}
+
+.admin-main-section .table .delete{
+    background-color: #DC2626; 
+    margin: 6px;
+}
+
+.admin-main-section .table .delete:hover{
+    background-color: #cb2525; 
+}
+
+.admin-main-section .table td {
+     text-align: center;
+     vertical-align: middle;
+}

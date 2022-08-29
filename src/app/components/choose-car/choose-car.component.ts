@@ -4,6 +4,7 @@ import { PickUpForm } from 'src/app/models/formPickUp';
 import { Router } from '@angular/router';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import { Cars } from 'src/app/models/car';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 
 @Component({
   selector: 'app-choose-car',
@@ -14,7 +15,8 @@ export class ChooseCarComponent implements OnInit {
 
   constructor(
     private router : Router,
-    private carService : CarServiceService
+    private carService : CarServiceService,
+    public nav : NavBarService
     ) { }
   
   pickUpTime!:PickUpForm;
@@ -23,6 +25,8 @@ export class ChooseCarComponent implements OnInit {
   clickedEdit:boolean = false
 
   ngOnInit(): void {
+    this.nav.show()
+    this.nav.changeColorFunc()
     // console.log(this.router.url);
     let data = localStorage.getItem('rentalData');
     let obj =  JSON.parse(data!);

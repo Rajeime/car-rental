@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 
 @Component({
   selector: 'app-navbar',
   template: `
   
-  <nav>
+  <nav *ngIf="nav.visible" [ngClass]="{'diff': nav.changeColor}">
     <div class="logo">
       <h4>Logo</h4>
     </div>
@@ -34,12 +35,21 @@ import { Location } from '@angular/common';
       font-family : sans-serif;
     }
 
+    .diff{
+      background-Color : white
+    }
+
     .logo h4{
       color : white;
       font-weight : 400;
       font-size : 18px;
       text-transform : uppercase;
     }
+
+    .diff .logo h4{
+      color: black
+    }
+
     
     .links{
       display : flex;
@@ -55,6 +65,10 @@ import { Location } from '@angular/common';
       cursor:pointer;
     }
 
+    .diff .links li{
+      color : black
+    }
+
     .rent{
       background-Color : transparent;
       border : 1px solid white;
@@ -63,7 +77,15 @@ import { Location } from '@angular/common';
       text-transform : uppercase;
       font-size : 12px;
       cursor : pointer;
-    }`
+    }
+
+    .diff .rent{
+      border: 1px solid black;
+      color: black
+    }
+    
+    `
+
   ],
 
 })
@@ -71,7 +93,9 @@ export class NavbarComponent implements OnInit {
 
   constructor( 
     private router: Router , 
-    private location : Location) { }
+    private location : Location,
+    public nav: NavBarService 
+    ) { }
   
 
   ngOnInit():void {
