@@ -18,6 +18,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
     FooterComponent,
     AdminDashBoardComponent,
     OrderSummaryComponent,
+    ContactComponent,
+    LoginSignupComponent,
 
   ],
   imports: [

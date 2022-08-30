@@ -1,3 +1,5 @@
+
+import { specs } from "./specs";
 export class Cars {
     _id?: string;
     car_Type : string;
@@ -7,7 +9,8 @@ export class Cars {
     car_Year : number;
     price : number;
     times_rented : number;
-    quantity : number;
+    available : number;
+    specs : Array<specs>
   
     constructor(
       _id? : string,
@@ -18,7 +21,8 @@ export class Cars {
       car_Year? : number,
       price? : number,
       times_rented? : number,
-      quantity? : number,
+      available? : number,
+      specs? : Array<specs>
     ) {
       this._id = _id!;
       this.car_Type = car_Type!;
@@ -28,6 +32,7 @@ export class Cars {
       this.car_Year = car_Year!;
       this.price = price!;
       this.times_rented = times_rented!;
-      this.quantity = quantity!;
+      this.available = available!;
+      this.specs = specs!
     }
   }

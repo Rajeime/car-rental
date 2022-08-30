@@ -2,9 +2,18 @@
     <form action="" [formGroup]="rentalForm" (submit)="rentalFormButton()">
 
      <!--------- pick up location and drop off location --------->
-       <div class="input-field">
-            <input type="text" placeholder="Pick up Location" name="pickUpLocation" formControlName="pickUpLocation">
-            <input type="text" placeholder="Drop off Location" name="dropOffLocation" formControlName="dropOffLocation" >
+       <div class="input-field" >
+            <!-- <input type="text" placeholder="Pick up Location" name="pickUpLocation" > -->
+            <select name="" id="" formControlName="pickUpLocation" >
+               <option value="" disabled selected>Pick up Location</option>
+               <option value="{{location}}" *ngFor="let location of locations">{{location}}</option>
+            </select>
+
+            <select name="" id="" formControlName="dropOffLocation" >
+               <option value="" disabled selected style="color: grey;">Drop off Location</option>
+               <option value="{{location}}" *ngFor="let location of locations">{{location}}</option>
+            </select>
+            <!-- <input type="text" placeholder="Drop off Location" name="dropOffLocation" > -->
        </div>
      
 
@@ -16,12 +25,15 @@
        
        <!--------- drop up date and drop off time --------->
        <div class="input-field">
-            <input type="text" placeholder="Time" class="time" name="time" formControlName="time">
+            <!-- <input type="text" placeholder="Time" class="time" name="time" formControlName="time"> -->
+            <select name="" id="" formControlName="time" class="time">
+               <option value="" disabled selected style="color: grey;">Time</option>
+               <option value="{{time}}" *ngFor="let time of time">{{time}}</option>
+            </select>
        </div>
 
         <button>search</button>
     </form>
-   <span class="error" *ngIf="(rentalControl['dropOffTime']?.touched && rentalControl['dropOffTime']?.errors?.['mismatch'])"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                    Time should be identical</span>
+ 
 </div>
 

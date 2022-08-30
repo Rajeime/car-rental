@@ -1,21 +1,21 @@
 const Cars = require('../models/cars');
 const multer = require('multer');
 
-//<---------- telling multer where to upload file ---------->
-const upload = multer({storage:storage}).single("demo_image");
-
 //<------------ specifying the name of the file and destination ------------>
-var storage = multer.diskStorage({   
-    destination: (req, file, callback) => { 
-       callback(null, './uploads');    
-    }, 
-    filename: (req, file, callback)=> { 
+var storage = multer.diskStorage({  
+    //destination
+    destination:'../uploads', 
+    //file name
+    filename: (req, file, callback) => { 
        callback(null , file.originalname);
     }
  });
 
+//<---------- telling multer where to upload file ---------->
+const upload = multer({storage:storage}).single("demo_image");
+
 //<----------- upload image ------------->
-const uploadImage = (req, res) => {
+const uploadImage = (req, res) => { 
     upload(req, res, (err) => {
      if(err) {
        res.status(400).send("Something went wrong!");
@@ -24,6 +24,7 @@ const uploadImage = (req, res) => {
    });
  }
 
+ 
 //<---------- get all cars from database ---------->
 const getAllCars =  async (req, res)=> {
     

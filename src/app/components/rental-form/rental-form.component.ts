@@ -3,6 +3,7 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { RentalInfoService } from 'src/app/services/rental-info.service'; 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rental-form',
@@ -51,12 +52,12 @@ export class RentalFormComponent implements OnInit {
     }
 
     else if(this.rentalForm.controls['pickUpDate'].value == this.rentalForm.controls['dropOffDate'].value){
-        alert('date cannot be the same');
+      swal.fire('Dates cannot be the same')
         return
       }
 
     else{
-        alert('Fill out all fields');
+        swal.fire('Fill out all fields')
       }
   
   
@@ -67,8 +68,29 @@ export class RentalFormComponent implements OnInit {
     'Kingston', 
     'St Andrew',
     'St Catherine',
-    'St Mary',
-    'Portland'
+  ]
+
+  time:string[]=[
+    '5:00am',
+    '6:00am',
+    '7:00am',
+    '8:00am',
+    '9:00am',
+    '10:00am',
+    '11:00am',
+    '12:00am',
+    '1:00pm',
+    '2:00pm',
+    '3:00pm',
+    '4:00pm',
+    '5:00pm',
+    '6:00pm',
+    '7:00pm',
+    '8:00pm',
+    '9:00pm',
+    '10:00pm',
+    '11:00pm',
+    '12:00pm',
   ]
 
   ngOnInit(): void {

@@ -48,8 +48,9 @@ export class ChooseCarComponent implements OnInit {
     this.carService.getCars().subscribe((result)=>{
         this.cars = result;
         this.pageSlice = this.cars.slice(0 , 6);
+        console.log(this.cars[0].specs[0].passengers)
     })
-    console.log(this.days)
+    
   }
 
   carTypes:string[]=[

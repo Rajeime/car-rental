@@ -36,10 +36,13 @@ let carsSchema = new db.Schema({
           required : true 
         },
 
-        quantity: { 
+        available: { 
           type : Number, 
           required : true 
         },
+        specs : {
+          type : Array
+        }
     },
     { collection: "Cars" }
   );

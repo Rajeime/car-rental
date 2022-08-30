@@ -15,5 +15,8 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
+  }
 
 

@@ -38,7 +38,7 @@
     <div class="car-details">
         <div class="car-detail" *ngFor="let car of pageSlice">
             <!----------------- image for each cars ------------------>
-            <section class="car-detail-pic">
+            <section class="car-detail-pic" >
                 <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75&wm=1" alt="" width="100%">
             </section>
         
@@ -50,20 +50,20 @@
                 <div class="specifics">
                     <div class="specs user">
                         <img src="/assets/user.svg" alt="" class="spec-img">
-                        <p>4</p>
-                        <span class="tooltiptext">5 adult passengers</span>
+                        <p>{{car.specs[0].passengers}}</p>
+                        <span class="tooltiptext">{{car.specs[0].passengers}} adult passengers</span>
                     </div>
 
                     <div class="specs luggage">
                         <img src="/assets/luggage.svg" alt="" class="spec-img">
-                        <p>2</p>
-                        <span class="tooltiptext">2 large bags</span>
+                        <p>{{car.specs[1].baggage}}</p>
+                        <span class="tooltiptext">{{car.specs[1].baggage}} large bags</span>
                     </div>
 
                     <div class="specs door">
                         <img src="/assets/doors.svg" alt="" class="spec-img">
-                        <p>5</p>
-                        <span class="tooltiptext">5 doors</span>
+                        <p>{{car.specs[2].doors}} </p>
+                        <span class="tooltiptext">{{car.specs[2].doors}} doors</span>
                     </div>
                 </div>
 
@@ -83,7 +83,8 @@
                 <div>
                     <p>Price for {{days.days}} {{days.days < 2 ? 'day':'days'}}</p> 
                     <h1>{{car.price * days.days | currency}}</h1>
-                    <button class="getCar" (click)="viewDeal(car, days)">Rent</button>
+                    <button class="getCar" (click)="viewDeal(car, days)" *ngIf="car.available >= 1">Rent</button>
+                    <button class="getCar" *ngIf="car.available < 1" style="background-color: grey; cursor:not-allowed">Unavailable</button>
                 </div>
             </section>
         </div>

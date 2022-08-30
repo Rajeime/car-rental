@@ -6,13 +6,16 @@ const PORT = process.env.port || 8080;
 const cors = require('cors');
 
 //<------- ROUTES ------->
-const routes = require('./routes/car');
+const carRoutes = require('./routes/car');
+const authRoutes = require('./routes/auth')
 
 //<------- Middlewares -------->
 app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-app.use(routes);
+app.use(authRoutes);
+app.use(carRoutes);
+
 
 //<------- Start Express App ------->
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err) => {

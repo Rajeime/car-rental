@@ -28,4 +28,8 @@ export class OrderSummaryComponent implements OnInit {
     console.log(this.days);
   }
 
+  bookNow(car:any){
+    console.log(car)
+  }
+
 }
