@@ -11,51 +11,77 @@
 <!-- admin header section -->
 <div class="admin-main">
 
-<div class="admin-main-head" style="position: sticky; top:0; z-index:6">
-    <h2 class="admin-main-person">Supervisor</h2>
-    <div style="display: flex; justify-content:space-around; align-items: center;">
-        <div style="position: relative;">
-            <input type="search" name="" id="" placeholder="Search" style="margin:0px 10px ;padding: 6px; width: 200px;" >
-            <i class="fa fa-search" aria-hidden="true" style="position: absolute; right:20px; top:50%; transform: translateY(-50%);"></i>
+   
+
+    <div class="admin-main-head">
+        <h2 class="admin-main-person">Supervisor</h2>
+        <div style="display: flex; justify-content:space-around; align-items: center;">
+            <i class="fas fa-bell admin-head-icons"></i>
+            <i class="fa-solid fa-user admin-head-icon"></i>
         </div>
-        <i class="fas fa-bell" style="margin:0px 10px ; cursor: pointer;"></i>
-        <i class="fa-solid fa-user" style="margin:0px 10px ; cursor: pointer;"></i>
     </div>
-</div>
-<!-- admin header section ends here -->
+    <!-- admin header section ends here -->
 
-<div class="admin-main-section">
-    <!-- content goes here -->
-    <div class="home">
-        <table class=" table">
-            <thead class="table-head" >
-                <tr class="row">
-                    <th scope="col">Make</th>
-                    <th scope="col">Model</th>
-                    <th scope="col">Year</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Available</th>
-                    <th scope="col">Event Type</th>
+    <div class="admin-main-section">
+        <!-- content goes here -->
+        <div class="main-section-head">
+            <div>
+                <button class="data">Cars In Database</button>
+            </div>
+            
+            <div class="searchAdd">
+                <div style="position: relative;">
+                    <input type="search" name="" id="" placeholder="Search" style="margin:0px 10px ;padding: 6px; width: 200px;" >
+                    <i class="fa fa-search" aria-hidden="true" style="position: absolute; 
+                    top:50%; 
+                    right:16px; 
+                    transform:translateY(-50%);color: grey;"
+                    ></i>
+                </div>
+    
+                <div>
+                    <button class="addCar" (click)="add()"><i class="fa fa-plus" aria-hidden="true" ></i>Add New Car</button>
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="home">
+            <table class=" table" style="border: 1px solid rgb(237, 236, 236);">
+                <thead class="table-head" >
+                    <tr class="row">
+                        <th scope="col">Make</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Available</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                    
+                <tr class="row" *ngFor="let car of cars">  
+                    <td>{{car.car_Make}}</td>
+                    <td>{{car.car_Model}}</td>
+                    <td>{{car.car_Year}}</td>
+                    <td>{{car.car_Type}}</td>
+                    <td>{{car.available}}</td>
+                    <td>{{car.price | currency}}</td>  
+                    <td >
+                        <a  class="edit"><i class="fa fa-pencil" aria-hidden="true" (click)="updateCar(car._id)"></i>
+                            Edit</a>
+                        <a class="delete" (click)="deleteCar(car._id)"><i class="fa fa-trash" aria-hidden="true" ></i>
+                            Remove</a>
+                    </td>
                 </tr>
-            </thead>
-                
-            <tr class="row" *ngFor="let car of cars">  
-                <td>{{car.car_Make}}</td>
-                <td>{{car.car_Model}}</td>
-                <td>{{car.car_Year}}</td>
-                <td>{{car.car_Type}}</td>
-                <td>{{car.available}}</td>
-                <td>
-                    <a href="" class="edit">update</a>
-                    <a href="" class="delete">remove</a>
-                </td>
-            </tr>
-                
-        </table>
+                    
+            </table>
 
-    </div> 
-    <!-- content ends here -->
-</div>
-
+        </div> 
+        <!-- content ends here -->
+    </div>
+    <div class="modal">
+        <app-add-car  (dataEmitter)="added($event)" class="modal-content"></app-add-car>
+    </div>
 
 </div>

@@ -23,6 +23,11 @@ export class CarServiceService {
     return this.http.post<Cars>(this.apiUrl, car);
   }
 
+   //<--------------- service for specific car --------------- >
+   getCar(id:string) {
+    return this.http.get<Cars>(this.apiUrl + id);
+  }
+
   //<--------------- service for updating car --------------- >
   updateItem(carID: string, car: Cars) {
     return this.http.put<Cars>(this.apiUrl + carID, car);

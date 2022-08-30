@@ -53,7 +53,6 @@ export class RentalFormComponent implements OnInit {
 
     else if(this.rentalForm.controls['pickUpDate'].value == this.rentalForm.controls['dropOffDate'].value){
       swal.fire('Dates cannot be the same')
-        return
       }
 
     else{

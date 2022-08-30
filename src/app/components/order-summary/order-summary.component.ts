@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from 'src/app/services/nav-bar.service';
 import { Cars } from 'src/app/models/car';
+import { days } from 'src/app/models/days';
+import { rentalForm } from 'src/app/models/rentalForm';
+import { CarServiceService } from 'src/app/services/car-service.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -9,11 +12,14 @@ import { Cars } from 'src/app/models/car';
 })
 export class OrderSummaryComponent implements OnInit {
 
-  constructor( public nav : NavBarService) { }
+  constructor( 
+    public nav : NavBarService,
+    private carService : CarServiceService
+    ) { }
 
-  car:any;
-  rentalData:any;
-  days:any;
+  car!:Cars;
+  rentalData!:rentalForm;
+  days!:days;
 
   ngOnInit(): void {
     this.nav.show()
@@ -28,8 +34,11 @@ export class OrderSummaryComponent implements OnInit {
     console.log(this.days);
   }
 
-  bookNow(car:any){
-    console.log(car)
+  bookNow(id:any , car:any){
+    this.car.available -=1 
+    this.carService.updateItem(id,car).subscribe(()=>{
+
+    })
   }
 
 }

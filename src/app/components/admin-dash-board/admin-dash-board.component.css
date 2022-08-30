@@ -35,6 +35,9 @@
 .admin-sidebar a:hover:not(.active){
     background-color:#0d1214;;
 }
+
+ /*<----------- sidebar ends here ----------->*/
+
   
 
  /*<----------- main sections ----------->*/
@@ -51,12 +54,14 @@
     display: flex;
     justify-content: space-between;
     padding: 14px 20px;
+    position: sticky; 
+    top:0; 
+    z-index:6
 }
 
 .admin-main-head .admin-main-person{
     color: #222d32;;
 }
-
 
 .admin-main h2{
     font-weight: 100;
@@ -70,6 +75,11 @@
     margin: 10px;
     padding: 20px;
     position: relative;
+}
+
+.admin-main .admin-head-icons{
+    margin:0px 10px ; 
+    cursor: pointer;
 }
 
 .admin-main-section .table{
@@ -100,7 +110,7 @@
 }
 
 .admin-main-section .table .row{
-    border-bottom: 2px solid rgb(242, 242, 242);
+    /* border-bottom: 2px solid rgb(242, 242, 242); */
     background-color: #ffffff;     
 }
 
@@ -108,9 +118,11 @@
     padding-top: 1rem 1.5rem;
 }
 
+.admin-main-section .table .row:nth-child(even){background-color: #f9f8f8;}
+
 .admin-main-section .table a{
     color: #ffffff;
-    border-radius: 0.25rem; 
+    /* border-radius: 0.25rem;  */
     border-width: 1px; 
     display: inline-block; 
     font-weight: 400; 
@@ -120,6 +132,7 @@
     text-decoration: none; 
     user-select: none;  
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .admin-main-section .table .edit{
@@ -145,4 +158,58 @@
 .admin-main-section .table td {
      text-align: center;
      vertical-align: middle;
+}
+
+.addCar{
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.addCar:hover{
+    background-color: rgb(0, 0, 164); 
+}
+
+.data{
+    color: black;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.338);
+    padding: 8px;
+}
+
+
+.addCar i{
+    margin-right: 2px;
+}
+
+.main-section-head{
+    display: flex; 
+    justify-content:space-between; 
+    align-items: center ;
+    margin: 0px 0px 30px 0px;
+}
+
+.searchAdd{
+    display: flex;
+}
+
+.modal{
+    position: fixed;
+    background-color: #0d1214c8;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index:20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modal-content{
+    border: 2px solid red;
+    width: 400px;
 }

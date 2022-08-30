@@ -38,7 +38,7 @@
                         <div class="specs door grey">
                             <i class="fas fa-snowflake"></i>
                             <p>A/C</p>
-                            <span class="tooltiptext">5 doors</span>
+                            <span class="tooltiptext">AC</span>
                         </div>
 
                     </div>
@@ -107,7 +107,7 @@
     </section>
 
     <!------------- price summary and location ------------->
-    <section class="confirm-payment" style="height: 80%;">
+    <section class="confirm-payment" style="height: 74%;">
         <div class="location">
             <div class="pick-up">
                 <p class="name head">Pick-up</p>
@@ -142,7 +142,7 @@
                 <p class="grey" style="margin-right: 10px;">{{days.days * car.price | currency}}</p>
             </div>
 
-            <button class="bookNow" (click)="bookNow(car)">Book Now</button>
+            <button class="bookNow" (click)="bookNow(car._id, car)">Book Now</button>
         </div>
     </section>
 </div>

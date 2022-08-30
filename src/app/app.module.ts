@@ -20,6 +20,7 @@ import { AdminDashBoardComponent } from './components/admin-dash-board/admin-das
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { AddCarComponent } from './components/add-car/add-car.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
     OrderSummaryComponent,
     ContactComponent,
     LoginSignupComponent,
+    AddCarComponent,
 
   ],
   imports: [

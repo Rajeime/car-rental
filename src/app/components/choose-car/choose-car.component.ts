@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RentalInfoService } from 'src/app/services/rental-info.service';
-import { PickUpForm } from 'src/app/models/formPickUp';
+import { rentalForm } from 'src/app/models/rentalForm';
 import { Router } from '@angular/router';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import { Cars } from 'src/app/models/car';
 import { NavBarService } from 'src/app/services/nav-bar.service';
+import { FormBuilder , Validators} from '@angular/forms';
+import { days } from 'src/app/models/days';
 
 @Component({
   selector: 'app-choose-car',
@@ -16,15 +18,16 @@ export class ChooseCarComponent implements OnInit {
   constructor(
     private router : Router,
     private carService : CarServiceService,
-    public nav : NavBarService
+    public nav : NavBarService,
+    private fb : FormBuilder
     ) { }
   
-  pickUpTime!:PickUpForm;
+  pickUpTime!:rentalForm;
   cars:Cars[] = [];
-  days!:any;
+  days!:days;
   clickedEdit:boolean = false;
 
-  pageSlice:Cars[]=[];
+  pageSlice:Cars[]=[]; 
 
    //<-------- paginator event -------->
    pageSize(event:any){
@@ -86,8 +89,9 @@ export class ChooseCarComponent implements OnInit {
   }
     
   viewDeal(car:any, days:any){
-    console.log(car,days);
     localStorage.setItem('car', JSON.stringify(car));
     this.router.navigateByUrl('/order');
   }
+
+
 }

@@ -1,23 +1,23 @@
-export class PickUpForm {
+export class rentalForm {
     pickUpLocation : string;
-    dropOffLocation: string;
+    dropOffLocation : string;
     pickUpDate : string;
-    dropOffDate : string;
-    time : string;
-
+    dropOffDate:string;
+    time:string;
+    
     constructor(
     pickUpLocation? : string,
-    dropOffLocation?: string,
+    dropOffLocation? : string,
     pickUpDate? : string,
-    dropOffDate? : string,
-    time?: string
-    ) 
-
-    {
+    dropOffDate?:string,
+    time?:string,
+    
+    ) {
     this.pickUpLocation = pickUpLocation!;
-    this. dropOffLocation = dropOffLocation!;
+    this.dropOffLocation = dropOffLocation!;
     this.pickUpDate = pickUpDate!;
     this.dropOffDate = dropOffDate!;
     this.time = time!
-    }
   }
+
+}

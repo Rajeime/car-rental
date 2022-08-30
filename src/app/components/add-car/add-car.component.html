@@ -1,0 +1,19 @@
+<div class="AddCarForm">
+    <form  [formGroup]="AddCarForm" (submit)="AddCars()">
+        <input type="text" name="" id="" placeholder="Type" formControlName="car_Type">
+        <input type="text" name="" id="" placeholder="Model" formControlName="car_Model">
+        <input type="file" name="" id="" placeholder="Image" formControlName="car_Img">
+        <input type="text" name="" id="" placeholder="Make" formControlName="car_Make">
+        <input type="text" name="" id="" placeholder="Year" formControlName="car_Year">
+        <input type="text" name="" id="" placeholder="price" formControlName="price">
+        <input type="text" name="" id="" placeholder="times_rented" formControlName="times_rented">
+        <input type="text" name="" id="" placeholder="available" formControlName="available">
+        <div class="specs" formGroupName="specs">
+            <input type="text" name="" id="" placeholder="passengers" formControlName="passengers">
+            <input type="text" name="" id="" placeholder="baggage" formArrayName="baggage">
+            <input type="text" name="" id="" placeholder="doors" formArrayName="doors">
+        </div>
+
+        <button>Add</button>
+    </form>
+</div>
