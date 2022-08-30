@@ -16,12 +16,10 @@ import { NavBarService } from 'src/app/services/nav-bar.service';
       <li routerLink="home">Home</li>
       <li routerLink="about">About Us </li>
       <li routerLink="contact">Contact</li>
-      <li routerLink="login">Login</li>
       <li routerLink="service">Services</li>
-      <li routerLink="signUp">Sign Up</li>
     </ul>
     
-    <button class="rent">Rent a car</button>
+    <button class="rent">Login / sign Up</button>
   </nav>`,
 
 

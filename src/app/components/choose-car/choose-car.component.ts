@@ -47,7 +47,7 @@ export class ChooseCarComponent implements OnInit {
     this.days = obj[1]
     this.carService.getCars().subscribe((result)=>{
         this.cars = result;
-        this.pageSlice = this.cars.slice(0 , 6) 
+        this.pageSlice = this.cars.slice(0 , 6);
     })
     console.log(this.days)
   }
@@ -85,6 +85,8 @@ export class ChooseCarComponent implements OnInit {
   }
     
   viewDeal(car:any, days:any){
-    console.log(car,days)
+    console.log(car,days);
+    localStorage.setItem('car', JSON.stringify(car));
+    this.router.navigateByUrl('/order');
   }
 }

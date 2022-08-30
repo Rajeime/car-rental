@@ -3,38 +3,39 @@
         <div class="carImgDetails">
             <!------------- name and type of car ------------->
             <div class="carAndType">
-                <p class="name">Honda Civic</p>
-                <p class="type">standard</p>
+                <p class="name">{{car.car_Make}} {{car.car_Model}}</p>
+                <p class="type">{{car.car_Type}}</p>
             </div>
             
             <div class="car">
-                <div class="car-img" >
+                <div class="car-img" style="padding-bottom:60px;">
                     <!-- image  goes here -->
+                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75&wm=1" alt="" width="100%">
                 </div>
 
                 <div class="details">'
                     <!-- details goes here -->
                     <!------------ car specs ------------>
                     <div class="specifics">
-                        <div class="specs user">
-                            <img src="/assets/user.svg" alt="" class="spec-img">
+                        <div class="specs user grey">
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <p>4</p>
                             <span class="tooltiptext">5 adult passengers</span>
                         </div>
     
-                        <div class="specs luggage">
+                        <div class="specs luggage grey">
                             <i class="fa fa-suitcase" aria-hidden="true"></i>
                             <p>2</p>
                             <span class="tooltiptext">2 large bags</span>
                         </div>
     
-                        <div class="specs door">
-                            <img src="/assets/doors.svg" alt="" class="spec-img">
+                        <div class="specs door grey">
+                            <svg fill="#6C6C6C" class="svg-image" role="img" style="width:20px;height:20px;line-height:inherit;color:inherit;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M148 20H92L36 84v80c0 8.836 7.164 16 16 16h96c8.836 0 16-7.164 16-16V36c0-8.837-7.164-16-16-16zm-8 104h-24a8 8 0 0 1-8-8c0-10.66 12.259-8 32-8c10.576 0 10.592 16 0 16zm8-32H52l48-56c38.289 0 48-2.65 48 7.989V92z"></path></svg>
                             <p>5</p>
                             <span class="tooltiptext">5 doors</span>
                         </div>
 
-                        <div class="specs door">
+                        <div class="specs door grey">
                             <i class="fas fa-snowflake"></i>
                             <p>A/C</p>
                             <span class="tooltiptext">5 doors</span>
@@ -49,8 +50,8 @@
 
                     <div class="included">
                         <ul>
-                            <li><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;</i>Price Gourantee</li>
-                            <li><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;</i>Thef Protection</li>
+                            <li><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;</i>Price Guarantee</li>
+                            <li><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;</i>Theft Protection</li>
                             <li><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;</i>Free Cancellation</li>
                         </ul>
 
@@ -70,16 +71,77 @@
         </div>
       
 
-        <div class="driver-details"></div>
+        <div class="driver-details">
+            <p class="name">Driver Details</p>
+            <div class="form-info">
+                <section>
+                    <label for="fName" class="grey">First Name</label>
+                    <input type="text" placeholder="Enter First Name" name="fName">
+                </section>
+
+                <section>
+                    <label for="lName" class="grey">Last Name</label>
+                    <input type="text" placeholder="Enter Last Name" name="lName">
+                </section>
+            </div>
+          
+            <div class="form-info">
+                <section>
+                    <label for="email" class="grey">Email</label>
+                    <input type="text" placeholder="Email" name="email">
+                </section>
+                
+
+                <section>
+                    <label for="mobile" class="grey">Mobile</label>
+                    <input type="text" placeholder="Mobile Number" name="mobile">
+                </section>
+            </div>
+
+            <div class="form-info address">
+                <label for="address" class="grey">Address</label>
+                <textarea name="address" id="" cols="30" rows="2" placeholder="Address"></textarea>
+            </div>
+           
+        </div>
     </section>
 
     <!------------- price summary and location ------------->
-    <section class="confirm-payment">
+    <section class="confirm-payment" style="height: 80%;">
         <div class="location">
+            <div class="pick-up">
+                <p class="name head">Pick-up</p>
+                <p class="grey date">{{rentalData.pickUpDate}}, {{rentalData.time}}</p>
+                <p class="grey date">{{rentalData.pickUpLocation}}</p>
+            </div>
+            <div class="drop-off">
+                <p class="name head"> Drop-off</p>
+                <p class="grey date">{{rentalData.dropOffDate}}, {{rentalData.time}}</p>
+                <p class="grey date">{{rentalData.dropOffLocation}}</p>
+            </div>
 
+            <div class="edit">
+                <p style="cursor: pointer;"><i class="fas fa-edit" ></i>&nbsp;Modify Info</p>
+            </div>
         </div>
-        
-        <div class="price-summary">
+
+        <div class="price-summary" style="line-height: 4px;">
+            <p class="name" style="margin-left: 10px; font-size:18px;">Price Summary</p>
+            <div style="display: flex; align-items:center; justify-content:space-between ;font-size: 14px; margin-left: 10px">
+                <p class="grey">Car rental fee</p>
+                <p class="grey" style="margin-right: 10px;">{{car.price | currency}}</p>
+            </div>
+
+            <div style="display: flex; align-items:center; justify-content:space-between ;font-size: 14px; margin-left: 10px;">
+                <p class="grey">Price for {{days.days}} {{days.days < 2 ? 'day':'days'}}</p>
+                <p class="grey" style="margin-right: 10px;">{{days.days * car.price | currency}}</p>
+            </div>
+
+            <div style="display: flex; align-items:center; justify-content:space-between ;font-size: 14px; margin-left: 10px;">
+                <p class="grey">Total</p>
+                <p class="grey" style="margin-right: 10px;">{{days.days * car.price | currency}}</p>
+            </div>
+
             <button class="bookNow">Book Now</button>
         </div>
     </section>

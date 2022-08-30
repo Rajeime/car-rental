@@ -6,15 +6,19 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px 50px;
+    background-color: rgba(241, 240, 240, 0.505);
+    /* background-color: green; */
 }
 
 .car-details{
     grid-column: 1/3;
-    max-width : 92%
+    max-width : 94%
 }
 
 .confirm-payment{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
 }
 
 .carAndType{
@@ -22,7 +26,7 @@
     align-items: center;
 }
 
-.carAndType .name{
+.name{
     color: rgb(12, 47, 85);
 }
 
@@ -49,19 +53,38 @@
 }
 
 .driver-details{
-    height: 100px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 4px ;
+    padding: 10px;
+  
 }
 
 .location{
     height: 50%;
+    background-color: white;
+    border-radius: 4px;
+    position: relative;
+}
+
+.location div{
+  margin-left: 10px;
+  line-height: 8px;
+}
+
+.location .head{
+  font-size: 18px
 }
 
 .price-summary{
     height: 50%;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 4px;
 }
 
 .bookNow{
-    width: 80%; 
+    width: 96%; 
     display:block;
     margin:0px auto;
     color: white;
@@ -69,6 +92,7 @@
     border: none;
     padding: 10px 14px;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 /* specs */
@@ -107,49 +131,99 @@
   
   
   
-  .specifics .specs{
+.specifics .specs{
     display: flex;
     align-items: center;
     margin: 0px 18px 0px 0px;
   }
   
- .specifics .specs .spec-img{
+.specifics .specs .spec-img{
     height:20px
   }
 
-  .included{
+.included{
     display: flex;
   }
 
-  .included ul{
+.included ul{
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
 
-  .included .second{
+.included .second{
     margin-left: 30px;
   }
 
-  .included li i{
+.included li i{
     color: rgb(30, 93, 45);
   }
 
-  .review{
+.review{
     display: flex; 
     align-items:center;
   }
 
-  .review-sum{
+.review-sum{
     color: white; 
     background-color:rgb(30, 93, 45);
     padding:4px;
-    border-radius: 2px;margin-right: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
   }
 
-  .carImgDetails{
+.carImgDetails{
     border-radius: 4px ;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     padding: 10px;
+    background-color: white;
   }
+
+.grey{
+    color: rgb(108, 108, 108);
+  }
+
+.location .date{
+  font-size: 14px
+}
+
+.location .edit p{
+  text-align: center;
+  color: rgb(2, 93, 220);
+}
+
+.form-info{
+  display: flex;
+}
+
+.form-info section{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 8px 8px 0px;
+  width: 100%;
+}
+
+.form-info input{
+  padding: 8px;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 4px;
+}
+
+.form-info input::placeholder{
+  color:rgb(56, 55, 55);
+}
+
+.address{
+  display: flex;
+  flex-direction: column;
+}
+
+.address textarea{
+  border-radius: 4px;
+  border: 1px solid rgb(214, 214, 214);
+  padding: 8px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+

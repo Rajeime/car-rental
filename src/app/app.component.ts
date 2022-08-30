@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'personal-project';
+//   onActivate(event:any) {
+//     window.scroll(0,0);    
+// }
 }

@@ -3,7 +3,6 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { RentalInfoService } from 'src/app/services/rental-info.service'; 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { timeMatch } from './timeMatch'; 
 
 @Component({
   selector: 'app-rental-form',
@@ -41,7 +40,7 @@ export class RentalFormComponent implements OnInit {
     console.log(this.validateDate())
     this.validateDate();
     this.calculateDate();
-    if(this.rentalForm.valid){
+    if(this.rentalForm.valid && this.rentalForm.controls['pickUpDate'].value != this.rentalForm.controls['dropOffDate'].value){
       const dataPassed = [
         this.rentalForm.value,
         {days : this.days}
@@ -51,9 +50,15 @@ export class RentalFormComponent implements OnInit {
       this.router.navigateByUrl('/choose');
     }
 
+    else if(this.rentalForm.controls['pickUpDate'].value == this.rentalForm.controls['dropOffDate'].value){
+        alert('date cannot be the same');
+        return
+      }
+
     else{
-      alert('Fill out all fields')
-    }
+        alert('Fill out all fields');
+      }
+  
   
   }
 
@@ -70,7 +75,7 @@ export class RentalFormComponent implements OnInit {
     this.disableDate();
     let data = localStorage.getItem('rentalData');
     console.log(data);
-
+    this.rentalForm.controls['dropOffDate'].disable()
   }
 
 
@@ -112,12 +117,11 @@ disableDate(){
 
 //<-------------- function that runs on change for date input field -------------->
 changeNext(){
-  this.otherDate()
-}
-
-otherDate(){
- 
-}
+  this.anotherTime = this.nextTime;
+  console.log(this.anotherTime);
+  this.anotherTime;
+  this.rentalForm.controls['dropOffDate'].enable()
+} 
 
 //return form control of forms
 get rentalControl(){
