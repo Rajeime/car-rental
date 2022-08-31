@@ -1,0 +1,55 @@
+.AddCarForm{
+    max-width: 400px;
+    background-color: white;
+    padding: 10px;
+    margin: 4vh auto 0 auto;
+    border-radius: 2px;
+}
+
+.input-container{
+    display: flex;
+}
+
+.input-container input{
+    width: 100%;
+}
+
+.input-container label{
+    width: 100%;
+}
+
+.form-info{
+    display: flex;
+  }
+  
+.form-info section{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 8px 8px 0px;
+    width: 100%;
+  }
+  
+.form-info input{
+    padding: 8px;
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 4px;
+  }
+
+.specs input[type='number']{
+    width: 90%;
+  }
+  
+.form-info input::placeholder{
+    color:rgb(56, 55, 55);
+  }
+
+  button{
+    display: block;
+    margin: 10px auto;
+    width:98%;
+    padding: 10px 10px;
+    color: white;
+    background-color: green;
+    border: none;
+    text-transform: uppercase;
+  }

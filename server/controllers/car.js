@@ -1,29 +1,5 @@
 const Cars = require('../models/cars');
 const multer = require('multer');
-
-//<------------ specifying the name of the file and destination ------------>
-var storage = multer.diskStorage({  
-    //destination
-    destination:'../uploads', 
-    //file name
-    filename: (req, file, callback) => { 
-       callback(null , file.originalname);
-    }
- });
-
-//<---------- telling multer where to upload file ---------->
-const upload = multer({storage:storage}).single("demo_image");
-
-//<----------- upload image ------------->
-const uploadImage = (req, res) => { 
-    upload(req, res, (err) => {
-     if(err) {
-       res.status(400).send("Something went wrong!");
-     }
-     res.send(req.file); 
-   });
- }
-
  
 //<---------- get all cars from database ---------->
 const getAllCars =  async (req, res)=> {
@@ -48,10 +24,36 @@ const getAllCars =  async (req, res)=> {
 }
 
 //<---------- post request to add cars to database ---------->
-const postCar = async (req, res)=>{     
+const postCar = async (req, res)=>{   
     
+        const data = {
+            car_Type: req.body.car_Type,
+            car_Model:req.body.car_Model,
+            car_Img:req.body.car_Img,
+            car_Make: req.body.car_Make, 
+            car_Year: req.body.car_Year,
+            price: req.body.price,
+            times_rented: req.body.times_rented, 
+            available: req.body.available,
+            specs:req.body.specs
+          }
+        
+
         try{
-            let car = await Cars.create(req.body);
+            if(req.body.car_Img){
+                multer({storage:storage}).single(req.body.car_Img); 
+                //<------------ specifying the name of the file and destination ------------>
+                    var storage = multer.diskStorage({  
+                    //destination
+                    destination:'../uploads', 
+                    //file name
+                    filename: (req, file, callback) => { 
+                    callback(null , file.originalname);
+                    }
+                });
+            }
+            
+            let car = await Cars.create(data);
             res.status(201).json(car)
             
         }catch(error){
@@ -110,5 +112,5 @@ module.exports = {
     editCar,
     deleteCar,
     findCarById,
-    uploadImage
+    // uploadImage
 }

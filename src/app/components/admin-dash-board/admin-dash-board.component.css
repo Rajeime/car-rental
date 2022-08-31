@@ -203,13 +203,8 @@
     height: 100%;
     width: 100%;
     z-index:20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    /* justify-content: center;
+    align-items: center; */
     
-}
-
-.modal-content{
-    border: 2px solid red;
-    width: 400px;
 }

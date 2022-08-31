@@ -15,9 +15,9 @@ router
 .delete(carRoute.deleteCar)
 .get(carRoute.findCarById);
 
-router
-.route('/images')
-.post(carRoute.uploadImage);
+// router
+// .route('/images')
+// .post(carRoute.uploadImage);
 
 
 module.exports = router

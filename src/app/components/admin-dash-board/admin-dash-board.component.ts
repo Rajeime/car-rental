@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Cars } from 'src/app/models/car';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import swal from 'sweetalert2'; 
@@ -12,12 +12,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AdminDashBoardComponent implements OnInit {
 
   cars:Cars[]=[];
-
+  @ViewChild('modal')modal!:ElementRef
   
 
   getCars(){
     this.carService.getCars().subscribe((result)=>{
-      this.cars = result
+      this.cars = result;
     })
   }
 
@@ -63,11 +63,21 @@ export class AdminDashBoardComponent implements OnInit {
 
     //<------------ brings up pop-up for data add form ------------> 
   add(){
-    let modal = document.querySelector('.modal') as HTMLElement
-    modal.style.display = 'block';
+    console.log(this.modal)
+    this.modal.nativeElement.style.display = 'block';
   }
 
   added(data:any){
-    console.log(data)
+    this.carService.createItem(data).subscribe(()=>{
+      this.getCars();
+      this.modal.nativeElement.style.display = 'none';
+      swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Car Added',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
   }
 }
