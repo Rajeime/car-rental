@@ -21,8 +21,6 @@ export class AdminDashBoardComponent implements OnInit {
     })
   }
 
-  
-
   constructor(
     private carService : CarServiceService,
     private fb : FormBuilder
@@ -35,9 +33,9 @@ export class AdminDashBoardComponent implements OnInit {
 
   deleteCar(id:any){
     swal.fire({
-      title: 'Are you sure?',
+      title: 'Are you sure?', 
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: 'warning', 
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -57,11 +55,15 @@ export class AdminDashBoardComponent implements OnInit {
   }
 
   //<------------ method that updates car in database ------------> 
-  updateCar(id:any){
-
+  updateCar(id:any, car:any){
+    this.modal.nativeElement.style.display = 'block';
+    // console.log(car);
+    // console.log(this.modal);
+    console.log(this.modal);
+    console.log(car);
   }
 
-    //<------------ brings up pop-up for data add form ------------> 
+  //<------------ brings up pop-up for data add form ------------> 
   add(){
     console.log(this.modal)
     this.modal.nativeElement.style.display = 'block';

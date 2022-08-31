@@ -97,7 +97,7 @@ import { CarServiceService } from 'src/app/services/car-service.service';
       text-transform : uppercase;
       font-size : 12px;
       border : 1px solid var(--accent);
-      cursor : pointer;
+      cursor : pointer; 
     }
 
     .fade{

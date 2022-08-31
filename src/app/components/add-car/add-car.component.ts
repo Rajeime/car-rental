@@ -1,6 +1,7 @@
-import { Component, OnInit , Output , EventEmitter} from '@angular/core';
+import { Component, OnInit , Output , EventEmitter , Input} from '@angular/core';
 import { FormBuilder , Validators } from '@angular/forms';
 import { rentalForm } from 'src/app/models/rentalForm';
+import { Cars } from 'src/app/models/car'; 
 
 @Component({
   selector: 'app-add-car',
@@ -11,7 +12,8 @@ export class AddCarComponent implements OnInit {
 
   constructor(private fb : FormBuilder) { }
 
-  @Output() dataEmitter  = new EventEmitter<rentalForm>()
+  @Output() dataEmitter  = new EventEmitter<rentalForm>();
+  @Input() data:Cars[] = [];
 
   ngOnInit(): void {
   }
@@ -35,7 +37,6 @@ export class AddCarComponent implements OnInit {
 
   //<------------ method that adds car to database ------------> 
   AddCars(){
-    // console.log(this.AddCarForm.value)
     this.dataEmitter.emit(this.AddCarForm.value)
   }
 }

@@ -68,7 +68,7 @@
                     <td>{{car.available}}</td>
                     <td>{{car.price | currency}}</td>  
                     <td >
-                        <a  class="edit"><i class="fa fa-pencil" aria-hidden="true" (click)="updateCar(car._id)"></i>
+                        <a class="edit" (click)="updateCar(car._id, car)"><i class="fa fa-pencil" aria-hidden="true" ></i>
                             Edit</a>
                         <a class="delete" (click)="deleteCar(car._id)"><i class="fa fa-trash" aria-hidden="true" ></i>
                             Remove</a>
@@ -81,7 +81,7 @@
         <!-- content ends here -->
     </div>
     <div class="modal" #modal>
-        <app-add-car  (dataEmitter)="added($event)" class="modal-content"></app-add-car>
+        <app-add-car  (dataEmitter)="added($event)" class="modal-content" ></app-add-car>
     </div>
 
 </div>
