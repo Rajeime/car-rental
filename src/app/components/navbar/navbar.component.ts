@@ -19,7 +19,7 @@ import { NavBarService } from 'src/app/services/nav-bar.service';
       <li routerLink="service">Services</li>
     </ul>
     
-    <button class="rent">Login / sign Up</button>
+    <button class="rent">Login</button>
   </nav>`,
 
 

@@ -26,7 +26,7 @@ export class AddCarComponent implements OnInit {
     this.AddCarForm.setValue({
         car_Type : this.data.car_Type,
         car_Model : this.data.car_Model,
-        car_Img :this.data.car_Img,
+        car_Img : this.data.car_Img,
         car_Make : this.data.car_Make,
         car_Year : this.data.car_Year,
         price : this.data.price,
@@ -38,7 +38,7 @@ export class AddCarComponent implements OnInit {
     })
     console.log(this.AddCarForm.value)
     console.log(this.data)
-  }
+  };
 
   AddCarForm = this.fb.group({
     car_Type : ['', Validators.required],

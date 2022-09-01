@@ -34,3 +34,22 @@
 
 
 
+<!-- <div class="container" style="border: 1px solid blue; margin: 0 auto; width:400px;">
+    <div style="display: flex; justify-content: space-around;">
+        <a (click)="linkOne()">Link1</a>
+        <a (click)="linkTwo()">Link2</a>
+    </div>
+
+    <div class="content" style="width: 100%; border:1px solid red">
+        <div style="text-align: center;" #one>Sign Up</div>
+        <div style="text-align: center; display: none;" #two>Login</div>
+    </div>
+</div> -->
+
+<div class="login">
+    <form [formGroup]="loginForm" (submit)="loginFormFunc()">
+        <input type="text" placeholder="email" formControlName="email">
+        <input type="password" placeholder="Password" formControlName="password">
+        <button>Login</button>
+    </form>
+</div>

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild, ElementRef} from '@angular/core';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import { Cars } from 'src/app/models/car';
 import { FormBuilder , Validators} from '@angular/forms';
 import { NavBarService } from 'src/app/services/nav-bar.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -57,10 +59,26 @@ export class HomePageComponent implements OnInit {
         dropOffTime : ['' , Validators.required]
     })
 
+    loginForm = this.fb.group({
+      email : ['', Validators.required],
+      password : ['', Validators.required]
+    })
+
+    loginFormFunc(){
+      console.log(this.loginForm.value)
+      if(this.loginForm.valid){
+        this.auth.login(this.loginForm.value).subscribe(()=>{
+          this.route.navigateByUrl('/admin')
+        })  
+      }
+    }
+
     constructor( 
       private carService : CarServiceService , 
       private fb: FormBuilder,
-      public nav : NavBarService
+      public nav : NavBarService,
+      private auth : AuthService,
+      private route : Router
       ) { }
   
     //array to save all cars coming from database
@@ -90,4 +108,5 @@ export class HomePageComponent implements OnInit {
             this.pageSlice = this.cars.slice(0 , 6)
         });
     };
+
 }

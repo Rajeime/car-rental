@@ -31,7 +31,7 @@ export class RentalFormComponent implements OnInit {
   
   constructor( 
       private fb: FormBuilder , 
-      private rentaInfo:RentalInfoService ,
+      private rentaInfo:RentalInfoService,
       private router: Router,
       private location : Location
       ) {}
@@ -40,7 +40,7 @@ export class RentalFormComponent implements OnInit {
     this.submitted = true
     console.log(this.validateDate())
     this.validateDate();
-    this.calculateDate();
+    this.calculateDays();
     if(this.rentalForm.valid && this.rentalForm.controls['pickUpDate'].value != this.rentalForm.controls['dropOffDate'].value){
       const dataPassed = [
         this.rentalForm.value,
@@ -58,8 +58,7 @@ export class RentalFormComponent implements OnInit {
     else{
         swal.fire('Fill out all fields')
       }
-  
-  
+
   }
 
   //locations available
@@ -110,7 +109,7 @@ export class RentalFormComponent implements OnInit {
 }}
 
 //<----------- function to calculate the amount of days a car is rented ----------->
-calculateDate(){
+calculateDays(){
   const pickUpDate = new Date(this.rentalForm.controls['pickUpDate'].value ).getTime();
   const dropOffDate = new Date(this.rentalForm.controls['dropOffDate'].value).getTime();
   const daysMillisecond = dropOffDate - pickUpDate ;

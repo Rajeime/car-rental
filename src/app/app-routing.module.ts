@@ -7,13 +7,18 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { AuthGaurdGuard } from './guards/auth-gaurd.guard';
 
 const routes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full' }, //default that redirects and empty path to home component
   { path : 'home' , component : HomePageComponent},
   { path : 'about', component : AboutUsComponent},
-  {path : 'choose' , component : ChooseCarComponent},
-  {path: 'admin', component : AdminDashBoardComponent},
+  {path : 'choose' , component : ChooseCarComponent,
+    children:[
+      { path: '', redirectTo : 'admin', pathMatch: 'full' },
+    ]
+  },
+  {path: 'admin', component : AdminDashBoardComponent,},
   {path : 'order' , component : OrderSummaryComponent},
   {path : 'contact' , component: ContactComponent},
   {path: 'login', component: LoginSignupComponent}

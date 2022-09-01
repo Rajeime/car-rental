@@ -4,18 +4,23 @@ const mongoose = require('mongoose');
 require('dotenv/config');
 const PORT = process.env.port || 8080;
 const cors = require('cors');
+// const cookieParser = require('cookie-parser');
 
 //<------- ROUTES ------->
 const carRoutes = require('./routes/car');
 const authRoutes = require('./routes/auth')
 
 //<------- Middlewares -------->
-app.use(cors());
+app.use(cors({
+	credentials:true , 
+	origin:['http://localhost:4200']
+}));
+
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(authRoutes);
 app.use(carRoutes);
-
+// app.use(cookieParser())
 
 //<------- Start Express App ------->
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, (err) => {

@@ -12,5 +12,17 @@ router
 .route('/signUp')
 .post(auth.signUp);
 
+//<------------- Get user ------------->
+router
+.route('/user')
+.get(auth.getUser);
+
+//<------------- logout user ------------->
+router
+.route('/logout')
+.get(auth.logout);
+
+
+
 
 module.exports = router
