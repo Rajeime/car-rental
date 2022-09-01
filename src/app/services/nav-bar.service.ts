@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 export class NavBarService {
   visible!: boolean;
   changeColor!:boolean;
+  visibleFooter!:boolean
 
-  constructor() { this.visible = false , this.changeColor }
+  constructor() { this.visible = false , this.changeColor , this.visibleFooter = true }
 
   hide() { this.visible = false; }
 
@@ -21,6 +22,15 @@ export class NavBarService {
 
   changeColorBack(){
     this.changeColor = false
+  }
+
+  visibleFooterFunHide(){
+    this.visibleFooter = false
+  }
+
+  
+  visibleFooterFun(){
+    this.visibleFooter = true
   }
 
 }

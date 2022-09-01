@@ -80,8 +80,8 @@
         </div> 
         <!-- content ends here -->
     </div>
-    <div class="modal" #modal>
-        <app-add-car  (dataEmitter)="added($event)" class="modal-content" ></app-add-car>
+    <div class="modal" *ngIf="modals.visible">
+        <app-add-car  (dataEmitter)="added($event)" class="modal-content"  #modal [data]="dataz"></app-add-car>
     </div>
 
 </div>

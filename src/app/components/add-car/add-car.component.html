@@ -1,12 +1,13 @@
 <div class="AddCarForm">
     <form  [formGroup]="AddCarForm" (submit)="AddCars()">
+        <i class="fa-solid fa-x" style="float: right; cursor:pointer;" (click)="closeModal()"></i>
            <p style="text-align: center; text-transform:uppercase; font-size:22px ;">Add Car</p>
             <div class="form-info">
                 <section>
                     <label for="car_Type">Car Type</label>
                     <input type="text" name="car_Type" id="" placeholder="Type" formControlName="car_Type">
                 </section>
-
+                
                 <section>
                     <label for="car_Model">Car Model</label>
                     <input type="text" name="car_Model" id="" placeholder="Model" formControlName="car_Model">

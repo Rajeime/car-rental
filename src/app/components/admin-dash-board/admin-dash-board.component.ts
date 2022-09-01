@@ -3,16 +3,20 @@ import { Cars } from 'src/app/models/car';
 import { CarServiceService } from 'src/app/services/car-service.service';
 import swal from 'sweetalert2'; 
 import { FormBuilder, Validators } from '@angular/forms';
+import { ModalService } from 'src/app/services/modal.service';
+import { NavBarService } from 'src/app/services/nav-bar.service';
 
 @Component({
   selector: 'app-admin-dash-board',
   templateUrl: './admin-dash-board.component.html',
   styleUrls: ['./admin-dash-board.component.css']
 })
-export class AdminDashBoardComponent implements OnInit {
+export class AdminDashBoardComponent implements OnInit{
+
+  dataz:Cars[]=[]
 
   cars:Cars[]=[];
-  @ViewChild('modal')modal!:ElementRef
+  @ViewChild('modal')modal!:ElementRef;
   
 
   getCars(){
@@ -23,12 +27,15 @@ export class AdminDashBoardComponent implements OnInit {
 
   constructor(
     private carService : CarServiceService,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    public modals : ModalService,
+    public footer : NavBarService
     
     ) { }
 
   ngOnInit(): void {
     this.getCars()
+    this.footer.visibleFooterFunHide()
   }
 
   deleteCar(id:any){
@@ -56,30 +63,27 @@ export class AdminDashBoardComponent implements OnInit {
 
   //<------------ method that updates car in database ------------> 
   updateCar(id:any, car:any){
-    this.modal.nativeElement.style.display = 'block';
-    // console.log(car);
-    // console.log(this.modal);
-    console.log(this.modal);
-    console.log(car);
+    this.modals.showAddForm();
+    this.dataz = car
   }
 
   //<------------ brings up pop-up for data add form ------------> 
   add(){
-    console.log(this.modal)
-    this.modal.nativeElement.style.display = 'block';
+    //popup modal
+    this.modals.showAddForm()
   }
 
   added(data:any){
-    this.carService.createItem(data).subscribe(()=>{
-      this.getCars();
-      this.modal.nativeElement.style.display = 'none';
-      swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Car Added',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    })
+    // this.carService.createItem(data).subscribe(()=>{
+    //   this.getCars();
+    //   this.modal.nativeElement.style.display = 'none';
+    //   swal.fire({
+    //     position: 'center',
+    //     icon: 'success',
+    //     title: 'Car Added',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   })
+    // })
   }
 }
